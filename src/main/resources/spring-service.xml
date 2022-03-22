@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--扫描service下的包-->
+    <context:component-scan base-package="com.ning.service"/>
+
+    <!--将我们的所有的业务类注入到Spring，使用配置或者注解实现-->
+    <bean id="BookServiceImpl" class="com.ning.service.BookServiceImpl">
+        <property name="bookMapper" ref="bookMapper"/>
+    </bean>
+
+    <!--声明式事务配置-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--aop事务支持-->
+
+</beans>
