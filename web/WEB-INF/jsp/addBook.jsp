@@ -9,7 +9,10 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<%--    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--%>
 </head>
     <div class="container">
         <div class="clearfix">
@@ -21,22 +24,42 @@
                 </div>
             </div>
             <form action="${pageContext.request.contextPath}/book/addBook" method="post">
-               <%-- 书籍名称：<input type="text" name="bookName" required><br><br><br>
-                书籍数量：<input type="text" name="bookCounts" required><br><br><br>
-                书籍详情：<input type="text" name="detail" required><br><br><br>
-                <input type="submit" value="添加">--%>
                    <div class="form-group">
-                       <label>书籍名称：</label>
-                       <input type="text" name="bookName" class="form-control" required>
+                       <label>书籍ID：</label>
+                       <input type="text" name="bookId" class="form-control" required>
                    </div>
                    <div class="form-group">
-                       <label> 书籍数量：</label>
-                       <input type="text" name="bookCounts" class="form-control" required>
+                       <label> 书籍名称：</label>
+                       <input type="text" name="title" class="form-control" required>
+                   </div>
+                <div class="form-group">
+                    <label> 作者：</label>
+                    <input type="text" name="author" class="form-control" required>
+                </div>
+                   <div class="form-group">
+                       <label>发行日期：</label>
+                       <input type="date" name="pubDate" class="form-control" >
                    </div>
                    <div class="form-group">
-                       <label>书籍详情：</label>
-                       <input type="text" name="detail" class="form-control" required>
+                       <label>发行商：</label>
+                       <input type="text" name="press" class="form-control" required>
                    </div>
+                    <div class="form-group">
+                        <label>总数量：</label>
+                        <input type="text" name="amount" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>类别：</label>
+                        <input type="text" name="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>价格：</label>
+                        <input type="number" name="price" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>状态：</label>
+                        <input type="text" name="state" class="form-control" required>
+                    </div>
                    <div class="form-group">
                        <input type="submit" class="form-control" value="添加">
                    </div>

@@ -33,7 +33,7 @@
 
     <select id="queryBookById" resultType="Books">
         select * from ssmbuild.books
-        where bookID=#{bookID}
+        where bookId=#{bookID}
     </select>
 
     <select id="queryAllBook" resultType="Books">

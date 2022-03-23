@@ -12,4 +12,5 @@ public class Readers {
     private String name;
     private char sex;
     private int phoneNum;
+    private Credentials credential;
 }

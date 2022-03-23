@@ -15,6 +15,16 @@
         <property name="bookMapper" ref="bookMapper"/>
     </bean>
 
+    <bean id="ReaderServiceImpl" class="com.ning.service.ReaderServiceImpl">
+        <property name="readerMapper" ref="readerMapper"/>
+    </bean>
+
+
+
+
+
+
+
     <!--声明式事务配置-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!--注入数据源-->

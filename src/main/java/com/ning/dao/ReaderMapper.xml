@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.ReaderMapper">
+
+    <select id="queryReaderByReaderId" resultMap="ReaderCredentials">
+        select * from
+        readers join credentials using (readerId)
+        where readers.readerId = #{readerId};
+    </select>
+
+        <resultMap id="ReaderCredentials" type="Readers">
+            <result property="readerId" column="readerId"/>
+            <result property="name" column="name"/>
+            <result property="sex" column="sex"/>
+            <result property="phoneNum" column="phoneNum"/>
+            <association property="credential" javaType="Credentials">
+                <result property="readerId" column="readerId"/>
+                <result property="handleDate" column="handleDate"/>
+                <result property="invalidDate" column="invalidDate"/>
+                <result property="password" column="password"/>
+                <result property="score" column="score"/>
+                <result property="borrowNum" column="borrowNum"/>
+                <result property="state" column="state"/>
+            </association>
+        </resultMap>
+
+    <select id="queryAllReader" resultMap="ReaderCredentials">
+        select * from readers join credentials using (readerId)
+    </select>
+
+
+
+
+    <insert id="addReader" parameterType="Readers">
+        insert into readers(readerId,sex, name, phoneNum)
+        values(#{readerId},#{sex},#{name},#{phoneNum})
+    </insert>
+
+    <update id="updateReader" parameterType="Readers">
+        update readers set name = #{name},
+                           sex = #{sex},
+                           phoneNum = #{phoneNum}
+                    where readerId = #{readerId}
+    </update>
+
+
+
+</mapper>

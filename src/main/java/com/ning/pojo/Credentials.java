@@ -7,20 +7,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Books {
-    private String bookId;
-    private String title;
-    private String author;
+public class Credentials {
+    private String readerId;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date pubDate;
-    private String press;
-    private int amount;
-    private String subject;
-    private float price;
+    private Date handleDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date invalidDate;
+    private String password;
+    private int score;
+    private int borrowNum;
     private String state;
-
-
 }

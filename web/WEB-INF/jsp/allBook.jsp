@@ -11,7 +11,13 @@
 <head>
     <title>书籍展示</title>
     <!-- 引入 Bootstrap -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<%--    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+
+<%--    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--%>
     <div class="container">
         <div class="clearfix">
             <div class="col-md-12 column">
@@ -38,40 +44,50 @@
         </div>
     </div>
     <div class="row clearfix">
-        <div class="col-md-12 column">
+        <div class="col-md-1 column"></div>
+        <div class="col-md-10 column">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
                         <th>书籍编号</th>
                         <th>书籍名称</th>
-                        <th>书籍数量</th>
-                        <th>书籍详情</th>
-                        <th>操作</th>
+                        <th>作者</th>
+                        <th>发行日期</th>
+                        <th>出版商</th>
+                        <th>数量</th>
+                        <th>书籍类别</th>
+                        <th>书籍单价</th>
+                        <th>书籍状态</th>
                     </tr>
                 </thead>
                 <%--书籍从数据库中查询出来，从这个list中遍历出来：foreach--%>
                 <tbody>
                     <c:forEach var="book" items="${list}">
                         <tr>
-                            <td>${book.bookID}</td>
-                            <td>${book.bookName}</td>
-                            <td>${book.bookCounts}</td>
-                            <td>${book.detail}</td>
+                            <td>${book.bookId}</td>
+                            <td>${book.title}</td>
+                            <td>${book.author}</td>
+                            <td>${1900+book.pubDate.year}年${book.pubDate.month}月${book.pubDate.day}日</td>
+                            <td>${book.press}</td>
+                            <td>${book.amount}</td>
+                            <td>${book.subject}</td>
+                            <td>${book.price}</td>
+                            <td>${book.state}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/book/toUpdate?id=${book.bookID}">修改</a>
+                                <a href="${pageContext.request.contextPath}/book/toUpdate?id=${book.bookId}">修改</a>
                                 &nbsp;| &nbsp;
-                                <a href="${pageContext.request.contextPath}/book/deleteBook?id=${book.bookID}">删除</a>
+                                <a href="${pageContext.request.contextPath}/book/deleteBook?id=${book.bookId}">删除</a>
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
         </div>
+        <div class="col-md-1 column"></div>
     </div>
 
 </head>
 <body>
-<h1>书籍展示</h1>
 
 
 </body>

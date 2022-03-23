@@ -9,10 +9,14 @@
 <html>
 <head>
     <title>修改书籍信息</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<%--    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 </head>
 <div class="container">
     <div class="clearfix">
+
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
@@ -22,27 +26,46 @@
         </div>
         <form action="${pageContext.request.contextPath}/book/updateBook" method="post">
             <%--前端传递隐藏域--%>
-            <input type="hidden" name="bookID" value="${books.bookID}">
-            <div class="form-group">
-                <label>书籍名称：</label>
-                <input type="text" name="bookName" class="form-control" value="${books.bookName}" required>
-            </div>
-            <div class="form-group">
-                <label> 书籍数量：</label>
-                <input type="text" name="bookCounts" class="form-control" value="${books.bookCounts}" required>
-            </div>
-            <div class="form-group">
-                <label>书籍详情：</label>
-                <input type="text" name="detail" class="form-control" value="${books.detail}" required>
-            </div>
+                <input type="hidden" name="bookId" value="${books.bookId}">
+
+                <div class="form-group">
+                    <label> 书籍名称：</label>
+                    <input type="text" name="title" class="form-control" value="${books.title}" required>
+                </div>
+                <div class="form-group">
+                    <label> 作者：</label>
+                    <input type="text" name="author" class="form-control" value="${books.author}" required>
+                </div>
+                <div class="form-group">
+                    <label>发行日期：</label>
+                    <input type="date" name="pubDate" class="form-control" value="${books.pubDate}" required>
+                </div>
+                <div class="form-group">
+                    <label>发行商：</label>
+                    <input type="text" name="press" class="form-control" value="${books.press}" required>
+                </div>
+                <div class="form-group">
+                    <label>总数量：</label>
+                    <input type="text" name="amount" class="form-control" value="${books.amount}" required>
+                </div>
+                <div class="form-group">
+                    <label>类别：</label>
+                    <input type="text" name="subject" class="form-control" value="${books.subject}" required>
+                </div>
+                <div class="form-group">
+                    <label>价格：</label>
+                    <input type="number" name="price" class="form-control" value="${books.price}" required>
+                </div>
+                <div class="form-group">
+                    <label>状态：</label>
+                    <input type="text" name="state" class="form-control" value="${books.state}" required>
+                </div>
+
+
             <div class="form-group">
                 <label>书籍名称：</label>
                 <input type="submit" class="form-control" value="修改">
             </div>
-           <%-- 书籍名称：<input type="text" name="bookName" required><br><br><br>
-            书籍数量：<input type="text" name="bookCounts" required><br><br><br>
-            书籍详情：<input type="text" name="detail" required><br><br><br>
-            <input type="submit" value="添加">--%>
         </form>
     </div>
 </div>
