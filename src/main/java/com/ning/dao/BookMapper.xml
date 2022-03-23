@@ -4,18 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ning.dao.BookMapper">
     <insert id="addBook" parameterType="Books">
-        insert into ssmbuild.books(bookName,bookCounts,detail)
-        values(#{bookName},#{bookCounts},#{detail})
+        insert into ssmbuild.books(bookId, title, author,
+                                   pubDate, press, amount,
+                                   subject, price, state)
+        values(#{bookId},#{title},#{author},
+               #{pubDate},#{press},#{amount},
+               #{subject},#{price},#{state})
     </insert>
 
     <delete id="deleteBookById" parameterType="_int">
-        delete from ssmbuild.books where bookID = #{bookID}
+        delete from ssmbuild.books where bookId = #{bookID}
     </delete>
+
+    <!--
+        update
+        set = #{}, = #{},= #{},
+            = #{},= #{},= #{},
+            = #{},= #{}
+            -->
 
     <update id="updateBook" parameterType="Books">
         update ssmbuild.books
-        set bookName=#{bookName},bookCounts=#{bookCounts},detail=#{detail}
-        where bookID=#{bookID}
+        set title = #{title},author = #{author},pubDate= #{pubDate},
+            press = #{press},amount= #{amount},subject= #{subject},
+            price = #{price},state = #{state}
+        where bookId = #{bookId}
     </update>
 
     <select id="queryBookById" resultType="Books">
@@ -28,7 +41,7 @@
     </select>
 
     <select id="queryBookByName" resultType="Books">
-        select * from ssmbuild.books where bookName like #{bookName}
+        select * from ssmbuild.books where books.title like #{bookName}
     </select>
 
 </mapper>

@@ -8,5 +8,4 @@
     <import resource="classpath:spring-service.xml"/>
     <import resource="classpath:spring-mvc.xml"/>
 
-
 </beans>
