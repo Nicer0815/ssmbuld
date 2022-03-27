@@ -24,7 +24,6 @@ public class BookController {
         System.out.println("list");
         List<Books> list = bookService.queryAllBook();
         model.addAttribute("list",list);
-
         return "allBook";
     }
 

@@ -32,6 +32,7 @@
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.46" />
           <element id="library" level="project" name="bootstrap" />
         </element>
+        <element id="dir-copy" path="$PROJECT_DIR$/web/static/img" />
       </element>
     </root>
   </artifact>

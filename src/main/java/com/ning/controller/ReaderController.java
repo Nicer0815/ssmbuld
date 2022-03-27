@@ -20,6 +20,16 @@ public class ReaderController {
         return "login";
     }
 
+    @RequestMapping("/allBook")
+    public String toReaderAllBook(){
+        return "readerAllBook";
+    }
+
+    @RequestMapping("/nav")
+    public String toNav(){
+        return "navi";
+    }
+
     @RequestMapping("/login")
     public String login(String readerId,String password,Model model){
         System.out.println("readerId:"+ readerId+" password:"+password+"  ==>login");

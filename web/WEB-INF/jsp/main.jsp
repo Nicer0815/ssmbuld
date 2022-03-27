@@ -9,8 +9,14 @@
 <html>
 <head>
     <title>主页</title>
+    <script>
+        $(function () {
+            $('#header').load('header.html');
+        })
+    </script>
 </head>
 <body>
 ${msg}
+
 </body>
 </html>
