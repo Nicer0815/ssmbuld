@@ -1,11 +1,12 @@
-package com.ning.service;
+package com.ning.service.impl;
 
 import com.ning.dao.ReaderMapper;
-import com.ning.pojo.Readers;
+import com.ning.entity.Readers;
+import com.ning.service.ReaderService;
 
 import java.util.List;
 
-public class ReaderServiceImpl implements ReaderService{
+public class ReaderServiceImpl implements ReaderService {
     private ReaderMapper readerMapper;
 
     @Override

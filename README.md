@@ -99,6 +99,24 @@ dba --超级管理员角色
 grant dba to lyn;
 grant connect to wry;
 grant resource to lly;
+
+
+C:\Users\Administrator\Desktop\JAVAEE\ssmbuld>mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -Dfile=ojdbc6.jar
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------< org.example:ssmbuld >-------------------------
+[INFO] Building ssmbuld 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install-file (default-cli) @ ssmbuld ---
+[INFO] Installing C:\Users\Administrator\Desktop\JAVAEE\ssmbuld\ojdbc6.jar to C:\Users\Administrator\.m2\repository\com\oracle\ojdbc6\11.2.0.3\ojdbc6-11.2.0.3.jar
+[INFO] Installing C:\Users\ADMINI~1\AppData\Local\Temp\mvninstall7972904160730413300.pom to C:\Users\Administrator\.m2\repository\com\oracle\ojdbc6\11.2.0.3\ojdbc6-11.2.0.3.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.371 s
+[INFO] Finished at: 2022-03-28T16:39:33+08:00
+[INFO] ------------------------------------------------------------------------
 ```
 
 
@@ -351,13 +369,6 @@ create table report_book(
     foreign key (jobId) references staff(jobId)
 );
 
-create table rank_info(
-     readerId varchar2(30),
-     rank char(1) not null ,
-     score int not null ,
-     borrowNum int default 0,
-     foreign key (readerId) references readers(readerId)
-);
 create table comments(
     bookId varchar2(50),
     readerId varchar2(30),
@@ -398,4 +409,246 @@ create table handle_reader(
     foreign key (readerId) references readers(readerId),
     foreign key (jobId) references staff(jobId)
 );
+
+create table record(
+    readerId varchar2(30),
+    bookId varchar2(50),
+    borrowDate DATE,
+    state varchar2(10),
+    expectDate DATE,
+    returnDate DATE,
+    primary key (readerId,bookId,borrowDate),
+    foreign key (readerId) references readers(readerId),
+    foreign key (bookId) references books(bookId)
+);
 ```
+
+## 2.5、数据插入
+
+#### 1、books表
+
+```sql
+insert into books values ('11111','现代操作系统','Andrew S.Tanenbaum',
+                          to_date('2014-09-09','YYYY-MM-DD'),'机械工业出版社',20,
+                          '计算机',60.00,'正常');
+insert into books values ('9787111599715','计算机网络','James.F.Kurose',
+                          to_date('2018-06-01','YYYY-MM-DD'),'机械工业出版社',20,
+                          '计算机',89.00,'正常');
+insert into books values ('9787111618331','设计模式','Erich Gamma',
+                          to_date('2019-05-01','YYYY-MM-DD'),'机械工业出版社',20,
+                          '计算机',79.00,'正常');
+insert into books values ('9787506365437','活着','余华',
+                          to_date('2017-07','YYYY-MM'),'作家出版社',20,'文学',31.00,'正常');
+insert into books values ('9787532734030','月亮和六便士','威廉·萨默塞特·毛姆',
+                          to_date('2019-03-01','YYYY-MM-DD'),'光明日报出版社',20,'文学',
+                          37.00,'正常');
+insert into books values ('9787570510542','热风','鲁迅',
+                          to_date('2019-06-01','YYYY-MM-DD'),'江西教育出版社',20,
+                          '文学',60.00,'正常');
+insert into books values ('9787519300203','中国通史','吕思勉',
+                          to_date('2016-02-01','YYYY-MM-DD'),'群言出版社',20,'历史',
+                          45.50,'正常');
+insert into books values ('9787550280469','史记','司马迁',
+                          to_date('2016-08-01','YYYY-MM-DD'),'北京联合出版公司',20,
+                          '历史',198.00,'正常');
+insert into books values ('9787545559804','帝国的崩裂','李奕定',
+                          to_date('2020-11-01','YYYY-MM-DD'),'天地出版社',20,'历史',
+                          79.00,'正常');
+insert into books values ('9787030201041','内科学案例版','刘世明、罗兴林',
+                          to_date('2008-05-01','YYYY-MM-DD'),'科学出版社',20,'医学',
+                          158.00,'正常');
+insert into books values ('9787519249496','局部解剖学','丁自海',
+                          to_date('2018-11-01','YYYY-MM-DD'),'世界图书出版公司',20,
+                          '医学',38.00,'正常');
+insert into books values ('9787122356840','外科学','王小农、王建忠',
+                          to_date('2020-03-01','YYYY-MM-DD'),'化学工业出版社',20,'医学',
+                          60.00,'正常');
+insert into books values ('9787107278303','标准日本语','光村图书出版株式会社',
+                          to_date('2013-05-01','YYYY-MM-DD'),'人民教育出版社',20,
+                          '外国语言文学',78.00,'正常');
+insert into books values ('9787562832614','日语教程','Reika',
+                          to_date('2012-05-01','YYYY-MM-DD'),'华东理工大学出版社',20,
+                          '外国语言文学',64.00,'正常');
+insert into books values ('9787513542272','书虫','吕游',
+                          to_date('2014-04-01','YYYY-MM-DD'),'外语教育与研究出版社',20,
+                          '外国语言文学',65.00,'正常');
+insert into books values ('9787010009223','毛泽东选集','毛泽东',
+                          to_date('1991-06-01','YYYY-MM-DD'),'人民出版社',20,'政治',
+                          81.00,'正常');
+insert into books values ('9787550218222','资本论','马克思',
+                          to_date('2013-08-01','YYYY-MM-DD'),'北京联合出版公司',20,
+                          '政治',49.90,'正常');
+insert into books values ('9787514709858','中国制度面对面','中央宣传部理论局',
+                          to_date('2020-07-01','YYYY-MM-DD'),'学习出版社',20,'政治',
+                          25.00,'正常');
+insert into books values ('9787010221779','中华人民共和国民法典','人民出版社',
+                          to_date('2020-06-01','YYYY-MM-DD'),'人民出版社',20,'法律',
+                          49.80,'正常');
+insert into books values ('9787100074483','中国法律与中国社会','瞿同祖',
+                          to_date('2010-12-01','YYYY-MM-DD'),'商务印书馆',20,'法律',
+                          66.00,'正常');
+insert into books values ('9789301312889','法学引注手册','法学引注手册编写组',
+                          to_date('2020-05-01','YYYY-MM-DD'),'北京大学出版社',20,'法律',
+                          28.00,'正常');
+insert into books values ('9787508091044','周易','冯国超',
+                          to_date('2017-02-01','YYYY-MM-DD'),'华夏出版社',20,'哲学',
+                          29.00,'正常');
+insert into books values ('9787550282131','道德经','老子',
+                          to_date('2019-06-01','YYYY-MM-DD'),'北京联合出版公司',20,
+                          '哲学',68.00,'正常');
+insert into books values ('9787506046114','易经','傅佩荣',
+                          to_date('2012-05-01','YYYY-MM-DD'),'东方出版社',20,'哲学',
+                          64.00,'正常');
+insert into books values ('9787806928622','中国钢琴音乐研究','代白生',
+                          to_date('2014-01-01','YYYY-MM-DD'),'上海音乐学院出版社',20,
+                          '音乐',40.00,'正常');
+insert into books values ('9787806672693','钢琴基础教程','韩林申',
+                          to_date('2003-05-01','YYYY-MM-DD'),'上海音乐出版社',20,
+                          '音乐',42.00,'正常');
+insert into books values ('9787115519955','音乐制作自学手册','陈飞',
+                          to_date('2019-11-01','YYYY-MM-DD'),'人民邮电出版社',20,
+                          '音乐',65.00,'正常');
+insert into books values ('9787301284964','摄影美学','秦大唐、秦鹏',
+                          to_date('2017-07-01','YYYY-MM-DD'),'北京大学出版社',20,
+                          '摄影',79.00,'正常');
+insert into books values ('9787115498489','光影艺术','Chris Knight',
+                          to_date('2019-04-01','YYYY-MM-DD'),'人民邮电出版社',20,
+                          '摄影',108.00,'正常');
+insert into books values ('9787547430798','老照片','冯克力',
+                          to_date('2019-02-01','YYYY-MM-DD'),'山东画报出版社',20,
+                          '摄影',20.00,'正常');
+commit ;
+```
+
+#### 2、readers表
+
+```sql
+insert into readers (readerId, name, phoneNum)
+values('000000','admin','123456');
+insert into readers (readerId, name, phoneNum)
+values('55100101','史珍香','139100101');
+insert into readers (readerId, name, phoneNum)
+values('55100102','蔡泰贤','139100102');
+insert into readers (readerId, name, phoneNum)
+values('55100103','范统','139100103');
+insert into readers (readerId, name, phoneNum)
+values('55100104','安亚平','139100104');
+insert into readers (readerId, name, phoneNum)
+values('55100105','白百何','139100105');
+insert into readers (readerId, name, phoneNum)
+values('55100106','白冰','139100106');
+insert into readers (readerId, name, phoneNum)
+values('55100107','陈雨奇','139100107');
+insert into readers (readerId, name, phoneNum)
+values('55100108','陈乔恩','139100108');
+insert into readers (readerId, name, phoneNum)
+values('55100109','杨紫','139100109');
+insert into readers (readerId, name, phoneNum)
+values('55100110','刘亦菲','139100110');
+insert into readers (readerId, name, phoneNum)
+values('55100111','贾玲','139100111');
+insert into readers (readerId, name, phoneNum)
+values('55100112','关晓彤','139100112');
+insert into readers (readerId, name, phoneNum)
+values('55100113','阚清子','139100113');
+insert into readers (readerId, name, phoneNum)
+values('55100114','沈月','139100114');
+
+insert into readers
+values ('000001','Nicer','M','111111');
+insert into readers
+values ('55100201','邓超','M','186100201');
+insert into readers
+values ('55100202','王俊凯','M','186100202');
+insert into readers
+values ('55100203','王北车','M','186100203');
+insert into readers
+values ('55100204','胡海泉','M','186100204');
+insert into readers
+values ('55100205','薛之谦','M','186100205');
+insert into readers
+values ('55100206','胡夏','M','186100206');
+insert into readers
+values ('55100207','陈奕迅','M','186100207');
+insert into readers
+values ('55100208','黄景瑜','M','186100208');
+insert into readers
+values ('55100209','白敬亭','M','186100209');
+insert into readers
+values ('55100210','张学友','M','186100210');
+insert into readers
+values ('55100211','苏见信','M','186100211');
+insert into readers
+values ('55100212','萧敬腾','M','186100212');
+insert into readers
+values ('55100213','朱星杰','M','186100213');
+insert into readers
+values ('55100214','胡梦周','M','186100214');
+
+commit ;
+```
+
+#### 3、Credentials表
+
+```sql
+insert into Credentials
+values('55100101', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 83, 3, '正常');
+insert into Credentials
+values('55100102', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'wxc922', 78, 1, '正常');
+insert into Credentials
+values('55100103', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100104', to_date('2022-09-01','YYYY-MM-DD'), to_date('2023-10-13','YYYY-MM-DD'), 'ayp0444', 58, 4, '注销');
+insert into Credentials
+values('55100105', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 81, 1, '正常');
+insert into Credentials
+values('55100106', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'zzz456', 82, 2, '正常');
+insert into Credentials
+values('55100107', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100108', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100109', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'wwrrtt', 59, 3, '锁定');
+insert into Credentials
+values('55100110', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 78, 1, '正常');
+insert into Credentials
+values('55100111', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100112', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'wdcvv67', 84, 4, '正常');
+insert into Credentials
+values('55100113', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'qqpvv24', 79, 2, '正常');
+insert into Credentials
+values('55100114', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'ntr000', 76, 2, '正常');
+
+
+insert into Credentials
+values('55100201', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100202', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100203', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'wc12389', 81, 1, '正常');
+insert into Credentials
+values('55100204', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 78, 1, '正常');
+insert into Credentials
+values('55100205', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'xzcee1', 59, 3, '锁定');
+insert into Credentials
+values('55100206', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 3, '正常');
+insert into Credentials
+values('55100207', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 0, '正常');
+insert into Credentials
+values('55100208', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'hjy2245', 78, 1, '正常');
+insert into Credentials
+values('55100209', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'bzz2022', 80, 2, '正常');
+insert into Credentials
+values('55100210', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 1, '正常');
+insert into Credentials
+values('55100211', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'rtuy67', 80, 2, '正常');
+insert into Credentials
+values('55100212', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), 'sjx200', 78, 1, '正常');
+insert into Credentials
+values('55100213', to_date('2022-09-01','YYYY-MM-DD'), to_date('2023-03-01','YYYY-MM-DD'), 'zxxc22', 59, 3, '注销');
+insert into Credentials
+values('55100214', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYYY-MM-DD'), '000000', 80, 2, '正常');
+commit ;
+```
+

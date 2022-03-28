@@ -1,6 +1,6 @@
 package com.ning.dao;
 
-import com.ning.pojo.Readers;
+import com.ning.entity.Readers;
 
 import java.util.List;
 

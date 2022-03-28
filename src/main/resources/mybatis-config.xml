@@ -10,7 +10,7 @@
 
     <!--配置数据源，交给Spring去做-->
     <typeAliases>
-        <package name="com.ning.pojo"/>
+        <package name="com.ning.entity"/>
     </typeAliases>
 
 

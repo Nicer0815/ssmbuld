@@ -1,6 +1,6 @@
 package com.ning.controller;
 
-import com.ning.pojo.Books;
+import com.ning.entity.Books;
 import com.ning.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

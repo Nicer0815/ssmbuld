@@ -11,11 +11,11 @@
     <context:component-scan base-package="com.ning.service"/>
 
     <!--将我们的所有的业务类注入到Spring，使用配置或者注解实现-->
-    <bean id="BookServiceImpl" class="com.ning.service.BookServiceImpl">
+    <bean id="BookServiceImpl" class="com.ning.service.impl.BookServiceImpl">
         <property name="bookMapper" ref="bookMapper"/>
     </bean>
 
-    <bean id="ReaderServiceImpl" class="com.ning.service.ReaderServiceImpl">
+    <bean id="ReaderServiceImpl" class="com.ning.service.impl.ReaderServiceImpl">
         <property name="readerMapper" ref="readerMapper"/>
     </bean>
 

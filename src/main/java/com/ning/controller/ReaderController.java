@@ -1,6 +1,6 @@
 package com.ning.controller;
 
-import com.ning.pojo.Readers;
+import com.ning.entity.Readers;
 import com.ning.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +17,7 @@ public class ReaderController {
 
     @RequestMapping("/toLogin")
     public String toLogin(){
+        //System.out.println("toLogin");
         return "login";
     }
 

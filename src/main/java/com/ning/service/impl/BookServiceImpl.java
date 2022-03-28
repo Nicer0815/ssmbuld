@@ -1,12 +1,13 @@
-package com.ning.service;
+package com.ning.service.impl;
 
 import com.ning.dao.BookMapper;
-import com.ning.pojo.Books;
+import com.ning.entity.Books;
+import com.ning.service.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
     //Service层调Dao层: 组合Dao
     private BookMapper bookMapper;
 

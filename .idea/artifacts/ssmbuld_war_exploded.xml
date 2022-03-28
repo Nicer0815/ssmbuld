@@ -31,6 +31,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.1.9.RELEASE" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.46" />
           <element id="library" level="project" name="bootstrap" />
+          <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.2.0.3" />
         </element>
         <element id="dir-copy" path="$PROJECT_DIR$/web/static/img" />
       </element>

@@ -1,4 +1,4 @@
-package com.ning.pojo;
+package com.ning.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

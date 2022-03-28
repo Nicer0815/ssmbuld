@@ -1,4 +1,4 @@
-import com.ning.pojo.Books;
+import com.ning.entity.Books;
 import com.ning.service.BookService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

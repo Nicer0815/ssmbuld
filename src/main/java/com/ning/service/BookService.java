@@ -1,7 +1,6 @@
 package com.ning.service;
 
-import com.ning.pojo.Books;
-import org.apache.ibatis.annotations.Param;
+import com.ning.entity.Books;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package com.ning.dao;
 
-import com.ning.pojo.Books;
-import org.apache.ibatis.annotations.Mapper;
+import com.ning.entity.Books;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
