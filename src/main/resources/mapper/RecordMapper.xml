@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.RecordMapper">
+
+    <insert id="addRecord" parameterType="Record">
+        insert into RECORD (READERID, BOOKID, BORROWDATE, STATE, EXPECTDATE, RETURNDATE)
+        VALUES (#{readerId},#{bookId},#{borrowDate},#{state},#{expectDate},#{returnDate})
+    </insert>
+
+    <update id="updateRecord" parameterType="Record">
+        update RECORD set STATE = #{state},
+                        EXPECTDATE = #{expectDate},
+                          RETURNDATE = #{returnDate}
+                    where READERID = #{readerId} and BOOKID = #{bookId} and BORROWDATE = #{borrowDate}
+    </update>
+
+    <select id="queryRecordByReaderId" resultType="Record">
+        select * from RECORD where READERID = #{readerId}
+    </select>
+
+    <select id="queryAllRecord" resultType="Record">
+        select * from RECORD
+    </select>
+
+</mapper>

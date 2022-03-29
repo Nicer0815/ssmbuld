@@ -17,6 +17,7 @@
     <mappers>
         <mapper class="com.ning.dao.BookMapper"/>
         <mapper class="com.ning.dao.ReaderMapper"/>
+        <mapper class="com.ning.dao.RecordMapper"/>
     </mappers>
 
 

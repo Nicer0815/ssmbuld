@@ -44,7 +44,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的信息 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">我的借阅</a></li>
+                            <li><a href="${pageContext.request.contextPath}/record/toRecord">我的借阅</a></li>
                             <li><a href="#">还书申请</a></li>
                             <li><a href="#">续借申请</a></li>
                             <li role="separator" class="divider"></li>
@@ -65,7 +65,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="${pageContext.request.contextPath}/reader/info">个人中心</a></li>
                             <li><a href="${pageContext.request.contextPath}/reader/toChangePassword">修改密码</a></li>
-                            <li><a href="#">关于我们</a></li>
+                            <li><a href="${pageContext.request.contextPath}/reader/aboutUs">关于我们</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="${pageContext.request.contextPath}/reader/logout">注销登录</a></li>
                         </ul>

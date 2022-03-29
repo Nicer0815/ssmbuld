@@ -18,6 +18,9 @@
     <bean id="ReaderServiceImpl" class="com.ning.service.impl.ReaderServiceImpl">
         <property name="readerMapper" ref="readerMapper"/>
     </bean>
+    <bean id="RecordServiceImpl" class="com.ning.service.impl.RecordServiceImpl">
+        <property name="recordMapper" ref="recordMapper"/>
+    </bean>
 
 
 

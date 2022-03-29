@@ -94,4 +94,9 @@ public class ReaderController {
         session.removeAttribute("reader");
         return "reader/readerMain";
     }
+    @RequestMapping("/aboutUs")
+    public String aboutUs(HttpSession session){
+        session.removeAttribute("reader");
+        return "reader/aboutUs";
+    }
 }
