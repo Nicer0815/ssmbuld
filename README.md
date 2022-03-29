@@ -652,3 +652,204 @@ values('55100214', to_date('2022-09-01','YYYY-MM-DD'), to_date('2026-06-01','YYY
 commit ;
 ```
 
+#### 4、book_state表
+
+馆藏位置：1A-01-1代表 一楼A区，01号书架，第一层
+
+```sql
+insert into book_state values('11111','现代操作系统'，'1A-01-1',20);
+insert into book_state values('9787111599715','计算机网络'，'1A-01-1',18);
+insert into book_state values('9787111618331','设计模式'，'1A-01-2',20);
+insert into book_state values('9787506365437','活着'，'1B-01-1',20);
+insert into book_state values('9787532734030','月亮和六便士'，'1B-01-1',18);
+insert into book_state values('9787570510542','热风'，'1B-01-2',20);
+```
+
+#### 5、staff表
+
+```sql
+--男用户管理员，初始密码
+insert into staff (jobId, personId, name, sex, phoneNum)
+values('1001','1110002221001','李强','M','1351001');
+insert into staff (jobId, personId, name, sex, phoneNum)
+values('1002','1110002221002','张三','M','1351002');
+insert into staff (jobId, personId, name, sex, phoneNum)
+values('1003','1110002221003','曹操','M','1351003');
+insert into staff (jobId, personId, name, sex, phoneNum)
+values('1004','1110002221004','刘备','M','1351004');
+
+--女用户管理员，初始密码
+insert into staff (jobId, personId, name, phoneNum)
+values('2001','1110002222001','林黛玉','1652001');
+insert into staff (jobId, personId, name, phoneNum)
+values('2002','1110002222002','薛宝钗','1652002');
+insert into staff (jobId, personId, name, phoneNum)
+values('2003','1110002222003','王熙凤','1652003');
+insert into staff (jobId, personId, name, phoneNum)
+values('2004','1110002222004','贾迎春','1652004');
+
+
+--男图书管理员，初始密码
+insert into staff (jobId, personId, name, rank, sex, phoneNum)
+values('3001','1110002223001','贾宝玉','用户管理员','M','1803001');
+insert into staff (jobId, personId, name, rank, sex, phoneNum)
+values('3002','1110002223002','曹雪芹','用户管理员','M','1803002');
+insert into staff (jobId, personId, name, rank, sex, phoneNum)
+values('3003','1110002223003','蒋玉涵','用户管理员','M','1803003');
+insert into staff (jobId, personId, name, rank, sex, phoneNum)
+values('3004','1110002223004','周汝昌','用户管理员','M','1803004');
+
+--女图书管理员，初始密码
+insert into staff (jobId, personId, name, rank, phoneNum)
+values('4001','1110002224001','王小花','用户管理员','1504001');
+insert into staff (jobId, personId, name, rank, phoneNum)
+values('4002','1110002224002','李红','用户管理员','1504002');
+insert into staff (jobId, personId, name, rank, phoneNum)
+values('4003','1110002224003','沈美','用户管理员','1504003');
+insert into staff (jobId, personId, name, rank, phoneNum)
+values('4004','1110002224004','刘悦','用户管理员','1504004');
+
+--男馆长，密码123456
+insert into staff values(jobId, personId, name, password, rank, sex, phoneNum)
+values('54321','11100022254321','李大力','123456','馆长','M','18954321');
+```
+
+#### 6、entry_info表
+
+```sql
+insert into entry_info values ('20220327-0001','11111',
+                               to_date('2022-03-27','YYYY-MM-DD'),
+                                20,'3001',60.00);
+                                --现代操作系统
+insert into entry_info values ('20220327-0002','9787111599715',
+                               to_date('2022-03-27','YYYY-MM-DD'), 
+                               20,'3002',89.00);
+                               --计网
+insert into entry_info values ('20220327-0003','9787111618331',
+                               to_date('2022-03-27','YYYY-MM-DD'),  
+                               30,'3003',79.00);
+                               --设计模式
+insert into entry_info values ('20220328-0004','9787506365437',
+                               to_date('2022-03-28','YYYY-MM-DD'),
+                               20,'3004',31.00);
+                               --活着
+
+
+insert into entry_info values ('20220328-0005','9787532734030',
+                               to_date('2022-03-28','YYYY-MM-DD'),
+                               20,'4001',37.00);
+                               --月亮和六便士
+insert into entry_info values ('20220327-0006','9787570510542',
+                               to_date('2022-03-27','YYYY-MM-DD'),
+                               20,'4002',60.00);
+                               --热风
+insert into entry_info values ('20220329-0007','9787519300203',
+                               to_date('2022-03-29','YYYY-MM-DD'),
+                               20,'4003',45.50);
+                               --中国通史
+insert into entry_info values ('20220329-0008','9787550280469',
+                               to_date('2022-03-29','YYYY-MM-DD'),
+                               10,'4004',198.00);
+                               --史记                               
+```
+
+#### 7、record表
+
+```sql
+insert into record 
+values('55100101', '11111', to_date('2022-10-12','YYYY-MM-DD'), '已还', to_date('2022-11-12','YYYY-MM-DD'), to_date('2022-10-21','YYYY-MM-DD'));
+insert into record 
+values('55100102', '9787111599715', to_date('2022-9-22','YYYY-MM-DD'), '逾还', to_date('2022-11-22','YYYY-MM-DD'), to_date('2022-12-10','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100104', '9787506365437', to_date('2023-2-10','YYYY-MM-DD'), '丢失', to_date('2023-3-10','YYYY-MM-DD'));
+insert into record 
+values('55100205', '9787570510542', to_date('2022-10-12','YYYY-MM-DD'), '损坏', to_date('2022-11-27','YYYY-MM-DD'), to_date('2022-11-30','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100209', '9787545559804', to_date('2023-3-12','YYYY-MM-DD'), '未还', to_date('2023-4-12','YYYY-MM-DD'));
+```
+
+#### 8、handle_reader表
+
+```sql
+insert into handle_reader
+values('55100105', to_date('2022-11-30','YYYY-MM-DD'), '2001', to_date('2022-12-1','YYYY-MM-DD'), '注销');
+insert into handle_reader(readerId, reportDate)
+values('55100104', to_date('2023-3-10','YYYY-MM-DD'));
+insert into handle_reader
+values('55100213', to_date('2023-2-11','YYYY-MM-DD'), '1001', to_date('2023-2-13','YYYY-MM-DD'), '注销');
+insert into handle_reader(readerId, reportDate)
+values('55100109', to_date('2023-3-7','YYYY-MM-DD'));
+
+```
+
+#### 9、book_collect表
+
+```sql
+insert into book_collect
+values('55100101' , '11111', to_date('2022-10-14','YYYY-MM-DD'));
+insert into book_collect
+values('55100108' , '9787506365437', to_date('2023-1-14','YYYY-MM-DD'));
+insert into book_collect
+values('55100111' , '9787301284964', to_date('2022-10-24','YYYY-MM-DD'));
+insert into book_collect
+values('55100207' , '9787806672693', to_date('2022-12-23','YYYY-MM-DD'));
+insert into book_collect
+values('55100210' , '9787550282131', to_date('2022-9-17','YYYY-MM-DD'));
+
+```
+
+#### 10、ques_ans表
+
+```sql
+insert into ques_ans
+values('55100101', to_date('2022-11-14','YYYY-MM-DD'), '2001', '图书馆可以嗑瓜子吗？', '你好同学，不能');
+insert into ques_ans
+values('55100205', to_date('2022-12-14','YYYY-MM-DD'), '1001', '账户锁定怎么解除', '你好同学，去办事大厅处理');
+insert into ques_ans
+values('55100208', to_date('2022-9-29','YYYY-MM-DD'), '2004', '逾期还书会扣信誉积分吗', '你好同学，逾期还书扣两分');
+insert into ques_ans
+values('55100112', to_date('2022-10-2','YYYY-MM-DD'), '4001', '可以要管理员姐姐的联系方式吗？', '你好同学，公事可以，私事不可以');
+insert into ques_ans
+values('55100104', to_date('2023-3-5','YYYY-MM-DD'), '2002', '书丢了怎么办？', '你好同学，按市场现价赔偿或者补还一本丢失的书');
+insert into ques_ans (readerId, askDate, question)
+values('55100106', to_date('2023-3-28','YYYY-MM-DD'), '图书馆什么时候重新开馆？');
+
+```
+
+#### 11、comments表
+
+```sql
+insert into comments
+values('11111', '55100101', to_date('2022-11-21','YYYY-MM-DD'), '书很好，敏感肌也可以用');
+insert into comments
+values('9787111599715', '55100104', to_date('2022-9-11','YYYY-MM-DD'), '还不错，已经学会拔网线了');
+insert into comments
+values('9787532734030', '55100202', to_date('2023-1-21','YYYY-MM-DD'), '强强强');
+insert into comments
+values('9787519249496', '55100205', to_date('2023-3-21','YYYY-MM-DD'), '找一位小伙伴一起实践本书内容');
+insert into comments
+values('9787506365437', '55100207', to_date('2022-10-23','YYYY-MM-DD'), '呜呜呜呜，余华好“温柔”，我真得哭死');
+insert into comments
+values('9787111618331', '55100209', to_date('2022-9-27','YYYY-MM-DD'), '很不错，已经给孩子买了三箱了');
+
+```
+
+#### 12、report_book表
+
+```sql
+insert into report_book
+values('20220328-0001', '9787111599715', '3001', to_date('2022-03-28','YYYY-MM-DD'), to_date('2022-03-31','YYYY-MM-DD'), 2, '损坏', '已处理');
+insert into report_book
+values('20220328-0002', '9787111618331', '3001', to_date('2022-03-28','YYYY-MM-DD'), to_date('2022-03-31','YYYY-MM-DD'), 3, '损坏', '已处理');
+insert into report_book
+values('20220326-0001', '9787570510542', '3003', to_date('2022-03-26','YYYY-MM-DD'), to_date('2022-03-31','YYYY-MM-DD'), 1, '损坏', '已处理');
+insert into report_book(checkId, bookId, jobId, reportDate, amount, reason, state)
+values('20220329-0001', '9787545559804', '4001', to_date('2022-03-29','YYYY-MM-DD'),  2, '损坏', '未处理');
+insert into report_book(checkId, bookId, jobId, reportDate, amount, reason, state)
+values('20220329-0002', '9787030201041', '4001', to_date('2022-03-29','YYYY-MM-DD'),  4, '损坏', '未处理');
+insert into report_book
+values('20220327-0001', '9787122356840', '3002', to_date('2022-03-27','YYYY-MM-DD'), to_date('2022-03-31','YYYY-MM-DD'), 2, '丢失', '已处理');
+insert into report_book
+values('20220327-0002', '9787513542272', '4002', to_date('2022-03-27','YYYY-MM-DD'), to_date('2022-03-31','YYYY-MM-DD'), 2, '丢失', '已处理');
+```
+

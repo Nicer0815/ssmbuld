@@ -24,13 +24,13 @@ public class BookController {
         System.out.println("list");
         List<Books> list = bookService.queryAllBook();
         model.addAttribute("list",list);
-        return "allBook";
+        return "admin/adminAllBook";
     }
 
     //跳转到增加书籍页面
     @RequestMapping("/toAddBook")
     public String toAddPaper(){
-        return "addBook";
+        return "admin/adminAddBook";
     }
 
     //添加书籍的请求
@@ -46,7 +46,7 @@ public class BookController {
     public String toUpdatePaper(int id, Model model){
         Books books = bookService.queryBookById(id);
         model.addAttribute("books",books);
-        return "updateBook";
+        return "admin/adminUpdateBook";
     }
     //修改书籍
     @RequestMapping("/updateBook")
@@ -70,6 +70,6 @@ public class BookController {
         //模糊查询
         List<Books> list = bookService.queryBookByName("%"+bookName+"%");
         model.addAttribute("list",list);
-        return "allBook";
+        return "admin/adminAllBook";
     }
 }

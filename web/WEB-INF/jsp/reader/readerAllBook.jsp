@@ -9,11 +9,9 @@
 <html>
 <head>
     <title>读者-书籍</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="/static/common/navi.jsp"></jsp:include>
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-4 col-sm-6">

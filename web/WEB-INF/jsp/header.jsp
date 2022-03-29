@@ -9,7 +9,7 @@
 <nav class="navbar navbar-default" role="navigation" style="background-color:#fff">
   <div class="container-fluid">
     <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-      <a class="navbar-brand " href="main.jsp"><p class="text-primary" style="font-family: 华文行楷,sans-serif; font-size: 200%; ">我的图书馆</p></a>
+      <a class="navbar-brand " href="reader/readerMain.jsp"><p class="text-primary" style="font-family: 华文行楷,sans-serif; font-size: 200%; ">我的图书馆</p></a>
     </div>
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
       <ul class="nav navbar-nav navbar-left">

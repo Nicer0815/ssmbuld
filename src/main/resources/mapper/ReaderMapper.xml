@@ -45,6 +45,12 @@
                     where readerId = #{readerId}
     </update>
 
-
+    <update id="updateCredentials" parameterType="Credentials">
+        update credentials set password = #{password},
+                               score = #{score},
+                               borrowNum = #{borrowNum},
+                               state = #{state}
+                    where readerId = #{readerId}
+    </update>
 
 </mapper>

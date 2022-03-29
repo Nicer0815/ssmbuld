@@ -16,6 +16,7 @@
     </script>
 </head>
 <body>
+<jsp:include page="/static/common/navi.jsp"></jsp:include>
 ${msg}
 
 </body>

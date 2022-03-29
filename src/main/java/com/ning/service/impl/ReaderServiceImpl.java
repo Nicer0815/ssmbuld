@@ -1,6 +1,7 @@
 package com.ning.service.impl;
 
 import com.ning.dao.ReaderMapper;
+import com.ning.entity.Credentials;
 import com.ning.entity.Readers;
 import com.ning.service.ReaderService;
 
@@ -20,6 +21,11 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
+    public int updateCredentials(Credentials credentials) {
+        return readerMapper.updateCredentials(credentials);
+    }
+
+    @Override
     public Readers queryReaderByReaderId(String readerId) {
         return readerMapper.queryReaderByReaderId(readerId);
     }
@@ -32,4 +38,5 @@ public class ReaderServiceImpl implements ReaderService {
     public void setReaderMapper(ReaderMapper readerMapper) {
         this.readerMapper = readerMapper;
     }
+
 }

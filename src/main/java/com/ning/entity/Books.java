@@ -22,5 +22,4 @@ public class Books {
     private float price;
     private String state;
 
-
 }
