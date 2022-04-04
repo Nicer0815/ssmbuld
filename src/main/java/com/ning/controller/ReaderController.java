@@ -108,4 +108,14 @@ public class ReaderController {
         return "reader/aboutUs";
     }
 
+
+    @RequestMapping("/queryBook")
+    public String queryBookName(String bookName,Model model){
+        System.out.println("queryBookName=>"+bookName);
+        //模糊查询
+        List<Books> list = bookService.queryBookByName("%"+bookName+"%");
+        model.addAttribute("bookList",list);
+        return "reader/readerAllBook";
+    }
+
 }

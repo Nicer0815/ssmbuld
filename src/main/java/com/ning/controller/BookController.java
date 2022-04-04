@@ -1,7 +1,9 @@
 package com.ning.controller;
 
 import com.ning.entity.Books;
+import com.ning.entity.Comments;
 import com.ning.service.BookService;
+import com.ning.service.CommentsService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +20,9 @@ public class BookController {
     @Autowired  //找了一下午的bug
     @Qualifier("BookServiceImpl")
     private BookService bookService;
-
+    @Autowired  //找了一下午的bug
+    @Qualifier("CommentsServiceImpl")
+    private CommentsService commentsService;
 
 
     //查询全部的书籍，并且返回到一个书籍展示页面
@@ -74,6 +78,15 @@ public class BookController {
         List<Books> list = bookService.queryBookByName("%"+bookName+"%");
         model.addAttribute("list",list);
         return "admin/adminAllBook";
+    }
+
+    @RequestMapping("/details")
+    public String toBookDetailsPage(String bookId,Model model){
+        Books book = bookService.queryBookById(bookId);
+        List<Comments> comments = commentsService.queryCommentByBookId(bookId);
+        model.addAttribute("comments",comments);
+        model.addAttribute("detailBook",book);
+        return "reader/bookDetails";
     }
 
 }

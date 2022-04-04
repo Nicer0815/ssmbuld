@@ -22,6 +22,7 @@
         <mapper class="com.ning.dao.QuesAnsMapper"/>
         <mapper class="com.ning.dao.StaffMapper"/>
         <mapper class="com.ning.dao.BooksCoverMapper"/>
+        <mapper class="com.ning.dao.CommentsMapper"/>
     </mappers>
 
 

@@ -33,6 +33,9 @@
     <bean id="BooksCoverServiceImpl" class="com.ning.service.impl.BooksCoverServiceImpl">
         <property name="booksCoverMapper" ref="booksCoverMapper"/>
     </bean>
+    <bean id="CommentsServiceImpl" class="com.ning.service.impl.CommentsServiceImpl">
+        <property name="commentsMapper" ref="commentsMapper"/>
+    </bean>
 
 
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.CommentsMapper">
+
+    <insert id="addComment" parameterType="Comments">
+        insert into COMMENTS values (#{bookId},#{readerId},#{commentDate},#{content})
+    </insert>
+
+    <select id="queryCommentByBookId" resultType="Comments">
+        select * from COMMENTS where BOOKID = #{bookId}
+    </select>
+
+    <select id="queryAllComments" resultType="Comments">
+        select * from COMMENTS
+    </select>
+</mapper>

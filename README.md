@@ -568,6 +568,117 @@ insert into books values ('9787547430798','老照片','冯克力',
                           to_date('2019-02-01','YYYY-MM-DD'),'山东画报出版社',20,
                           '摄影',20.00,'正常');
 commit ;
+
+
+--第二波数据
+
+insert into books values ('9787111213826','Java编程思想','Bruce Eckel',
+                          to_date('2007-06-01','YYYY-MM-DD'),'机械工业出版社',20,
+                          '计算机',108.00,'正常');
+insert into books values ('9787111528395','数据结构与算法分析','Mark Allen Weiss',
+                          to_date('2016-03-01','YYYY-MM-DD'),'机械工业出版社',20,
+                          '计算机',69.00,'正常');   
+insert into books values ('9787111636663','Java核心技术','Cay S.Horstmann',
+                          to_date('2020-01-01','YYYY-MM-DD'),'机械工业出版社',20,
+                          '计算机',298.00,'正常'); 
+insert into books values ('9787302517597','Java从入门到精通','明日科技',
+                          to_date('2019-03-01','YYYY-MM-DD'),'清华大学出版社',20,
+                          '计算机',69.80,'正常');  
+insert into books values ('9787513331418','第七天','余华',
+                          to_date('2018-08-01','YYYY-MM-DD'),'新星出版社',20,
+                          '文学',27.00,'正常'); 
+insert into books values ('9787544766500','杀死一只知更鸟','Harper Lee',
+                          to_date('2017-02-01','YYYY-MM-DD'),'译林出版社',20,
+                          '文学',48.00,'正常');  
+insert into books values ('9787506365604','在细雨中呼喊','余华',
+                          to_date('2012-09-01','YYYY-MM-DD'),'作家出版社',20,
+                          '文学',33.00,'正常');
+insert into books values ('9787224127898','山月记','中岛敦',
+                          to_date('2018-12-01','YYYY-MM-DD'),'陕西人民出版社',20,
+                          '文学',26.80,'正常'); 
+insert into books values ('9787508660752','人类简史','Yuval Noah Harari',
+                          to_date('2017-02-01','YYYY-MM-DD'),'中信出版社',20,
+                          '历史',68.00,'正常');
+insert into books values ('9787108009821','万历十五年','黄仁宇',
+                          to_date('2006-06-01','YYYY-MM-DD'),
+                          '生活读书新知三联书店',20,'历史',26.00,'正常'); 
+insert into books values ('9787516827628','趣味中国史','趣哥',
+                          to_date('2020-11-01','YYYY-MM-DD'),'台海出版社',20,
+                          '历史',49.80,'正常');
+insert into books values ('9787108010360','中国大历史','黄仁宇',
+                          to_date('2007-02-01','YYYY-MM-DD'),
+                          '生活读书新知三联书店',20,'历史',35.00,'正常');           insert into books values ('9787117255561','中医入门','秦伯未',
+                          to_date('2018-01-01','YYYY-MM-DD'),
+                          '人民卫生出版社',20,'医学', 29.00,'正常');
+insert into books values ('9787513248006','黄帝内经','徐文兵',
+                          to_date('2019-09-01','YYYY-MM-DD'),
+                          '中国中医药出版社',20,'医学', 59.00,'正常');             insert into books values ('9787521401554','难经','扁鹊',
+                          to_date('2018-07-01','YYYY-MM-DD'),
+                          '中国医药科技出版社',20,'医学', 10.00,'正常');           insert into books values ('9787802312364','伤寒论','胡希恕',
+                          to_date('2019-03-01','YYYY-MM-DD'),
+                          '中国中医药出版社',20,'医学', 45.00,'正常'); 
+insert into books values ('9787560017273','词汇大全','新概念',
+                          to_date('2000-06-01','YYYY-MM-DD'),
+                          '外语教学与研究出版社',20,'外国语言文学',12.00,'正常');     insert into books values ('9787560013466','新概念英语一','何其莘',
+                          to_date('2000-06-01','YYYY-MM-DD'),
+                          '外语教学与研究出版社',20,'外国语言文学',29.90,'正常');     insert into books values ('9787560013473','新概念英语二','何其莘',
+                          to_date('2000-06-01','YYYY-MM-DD'),
+                          '外语教学与研究出版社',20,'外国语言文学',79.80,'正常');     insert into books values ('9787560018737','新概念英语三','何其莘',
+                          to_date('2000-06-01','YYYY-MM-DD'),
+                          '外语教学与研究出版社',20,'外国语言文学',19.90,'正常');     insert into books values ('9787503561634','习近平的七年知青岁月',
+                          '中央党校采访实录编辑室',
+                          to_date('2017-08-01','YYYY-MM-DD'),'中央党校出版社',20,
+                          '政治',76.00,'正常'); 
+insert into books values ('9787509837412','中国共产党的九十年','中央党史研究室',
+                          to_date('2016-06-01','YYYY-MM-DD'),'中共党史出版社',20,
+                          '政治',150.00,'正常');
+insert into books values ('9787509909294','红色延安故事','中国延安干部学院',
+                          to_date('2017-08-01','YYYY-MM-DD'),'党建读物出版社',20,
+                          '政治',39.00,'正常');
+insert into books values ('9787503565397','习近平在正定','中央党校采访实录编辑室',
+                          to_date('2017-08-01','YYYY-MM-DD'),'中央党校出版社',20,
+                          '政治',76.00,'正常'); 
+insert into books values ('2402220000046','刑法学讲义','罗翔',
+                          to_date('2020-07-01','YYYY-MM-DD'),
+                          '云南人民出版社',20,'法律',68.00,'正常');
+                          insert into books values ('9787544766630','论法的精神','孟德斯鸠',
+                          to_date('2016-11-01','YYYY-MM-DD'),
+                          '译林出版社',20,'法律',58.00,'正常');
+insert into books values ('9787519742683','中国民法典新规则要点','杨立新',
+                          to_date('2020-06-01','YYYY-MM-DD'),
+                          '中国法律新图书有限公司',20,'法律',138.00,'正常');         insert into books values ('9787301264874','要命的选择','雨果',
+                          to_date('2016-01-01','YYYY-MM-DD'),
+                          '北京大学出版社',20,'法律',35.00,'正常');                 insert into books values ('9787559614032','传习录','叶圣陶',
+                          to_date('2018-01-01','YYYY-MM-DD'),
+                          '北京联合出版社',20,'哲学',45.00,'正常'); 
+insert into books values ('9787559402035','知行合一','度阴山',
+                          to_date('2018-01-01','YYYY-MM-DD'),
+                          '江苏文艺出版社',20,'哲学',118.00,'正常');               insert into books values ('9787544334532','梅花易数','邵雍',
+                          to_date('2011-04-01','YYYY-MM-DD'),
+                          '海南出版社',20,'哲学',35.00,'正常');                   insert into books values ('9787518026517','素书全鉴','黄石公',
+                          to_date('2016-08-01','YYYY-MM-DD'),
+                          '中国纺织出版社',20,'哲学',68.00,'正常');                 insert into books values ('9787313177063','久石让音乐手记','久石让',
+                          to_date('2017-08-01','YYYY-MM-DD'),
+                           '上海交通大学出版社',20,'音乐',49.80,'正常');
+insert into books values ('9787805536170','现代钢琴教程','约翰汤普森',
+                          to_date('2014-08-01','YYYY-MM-DD'),
+                           '上海音乐出版社',20,'音乐',86.00,'正常');               insert into books values ('9787805534404','钢琴手指练习','方百里',
+                          to_date('2009-10-01','YYYY-MM-DD'),
+                           '上海音乐出版社',20,'音乐',32.00,'正常');               insert into books values ('9787302526308','聆听音乐','Craig Wright',
+                          to_date('2019-04-01','YYYY-MM-DD'),
+                           '清华大学出版社',20,'音乐',98.00,'正常');               insert into books values ('9787121365409','摄影范谈集','范朝亮',
+                          to_date('2019-06-01','YYYY-MM-DD'),'电子工业出版社',20,
+                          '摄影',98.00,'正常');
+insert into books values ('9787512202153','写真一瞬','本间直子',
+                          to_date('2012-04-01','YYYY-MM-DD'),
+                          '中国民族摄影出版社',20,'摄影',48.00,'正常');             insert into books values ('9787540250379','中国照相机锦集','王士元',
+                          to_date('2018-06-01','YYYY-MM-DD'),'北京燕山出版社',20,
+                          '摄影',158.00,'正常');
+insert into books values ('9787115484291','一期一会','啾啾秋秋酱',
+                          to_date('2018-06-01','YYYY-MM-DD'),'人民邮电出版社',20,
+                          '摄影',128.00,'正常');  
+                          
+commit ;               
 ```
 
 #### 2、readers表
@@ -907,9 +1018,13 @@ values('20220327-0002', '9787513542272', '4002', to_date('2022-03-27','YYYY-MM-D
 
 
 
-13、books_cover表
+#### 13、books_cover表
 
 ```sql
+--Blob数据插入配置
+CREATE OR REPLACE DIRECTORY TEST_DIR AS 'C:\Users\Administrator\Desktop\JAVAEE\Oracle-Image'; -- 路径名 "TEST_DIR" 必须为大写
+GRANT READ,WRITE ON DIRECTORY TEST_DIR TO lyn;
+
 DECLARE  
   tempimg BLOB;  
   tempdir BFILE:=BFILENAME('TEST_DIR','11111.jpg');  -- 现代操作系统
@@ -1211,7 +1326,412 @@ DECLARE
   COMMIT;
 END;
 
-个人借阅记录+收藏夹逻辑+读者查看所有书籍界面+BOOKS_COVER中Blob大对象的操作
+--个人借阅记录+收藏夹逻辑+读者查看所有书籍界面+BOOKS_COVER中Blob大对象的操作
+
+--续
+
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787111213826.jpg');  -- Java编程思想
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787111213826',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787111528395.jpg');  -- 数据结构与算法分析
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787111528395',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787111636663.jpg');  -- Java核心技术
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787111636663',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787302517597.jpg');  -- Java从入门到精通
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787302517597',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787513331418.jpg');  -- 第七天
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787513331418',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787544766500.jpg');  -- 杀死一只知更鸟
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787544766500',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787506365604.jpg');  -- 在细雨中呼喊
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787506365604',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787224127898.jpg');  -- 山月记
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787224127898',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787508660752.jpg');  -- 人类简史
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787508660752',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787108009821.jpg');  -- 万历十五年
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787108009821',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787516827628.jpg');  -- 趣味中国史
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787516827628',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787108010360.jpg');  -- 中国大历史
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787108010360',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787117255561.jpg');  -- 中医入门
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787117255561',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787513248006.jpg');  -- 黄帝内经
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787513248006',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787521401554.jpg');  -- 难经
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787521401554',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787802312364.jpg');  -- 伤寒论
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787802312364',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787560017273.jpg');  -- 词汇大全
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787560017273',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787560013466.jpg');  -- 新概念英语一
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787560013466',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787560013473.jpg');  -- 新概念英语二
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787560013473',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787560018737.jpg');  -- 新概念英语三
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787560018737',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787503561634.jpg');  -- 习近平的七年知青岁月
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787503561634',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787509837412.jpg');  -- 中国共产党的九十年
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787509837412',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787509909294.jpg');  -- 红色延安故事
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787509909294',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787503565397.jpg');  -- 习近平在正定
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787503565397',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','2402220000046.jpg');  -- 刑法学讲义
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('2402220000046',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787544766630.jpg');  -- 论法的精神
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787544766630',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787519742683.jpg');  -- 中国民法典新规则要点
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787519742683',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787301264874.jpg');  -- 要命的选择
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787301264874',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787559614032.jpg');  -- 传习录
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787559614032',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787559402035.jpg');  -- 知行合一
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787559402035',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787544334532.jpg');  -- 梅花易数
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787544334532',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787518026517.jpg');  -- 素书全鉴
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787518026517',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787313177063.jpg');  -- 久石让音乐手记
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787313177063',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787805536170.jpg');  -- 现代钢琴教程
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787805536170',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787805534404.jpg');  -- 钢琴手指练习
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787805534404',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787302526308.jpg');  -- 聆听音乐
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787302526308',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787121365409.jpg');  -- 摄影范谈集
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787121365409',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787512202153.jpg');  -- 写真一瞬
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787512202153',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787540250379.jpg');  -- 中国照相机锦集
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787540250379',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+DECLARE
+    tempimg BLOB;
+    tempdir BFILE:=BFILENAME('TEST_DIR','9787115484291.jpg');  -- 一期一会
+BEGIN
+    INSERT INTO BOOKS_COVER(BOOKID, COVER) VALUES ('9787115484291',EMPTY_BLOB())RETURN COVER INTO TEMPIMG;
+    DBMS_LOB.FILEOPEN(tempdir);
+    DBMS_LOB.LOADFROMFILE(tempimg,tempdir,DBMS_LOB.GETLENGTH(tempdir));
+    DBMS_LOB.FILECLOSE(tempdir);
+    COMMIT;
+END;
+
+
 
 ```
 
