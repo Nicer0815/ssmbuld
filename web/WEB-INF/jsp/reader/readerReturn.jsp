@@ -2,18 +2,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2022-03-29
-  Time: 23:03
+  Date: 2022-03-30
+  Time: 10:46
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>借阅记录</title>
+    <title>还书申请</title>
 </head>
 <body>
 <jsp:include page="/static/common/navi.jsp"></jsp:include>
-records:${records}
+${records}
+
 <div class="row clearfix">
     <div class="col-md-1 column"></div>
     <div class="col-md-10 column">
@@ -39,6 +40,9 @@ records:${records}
                     <td>${record.author}</td>
                     <td>${1900+record.borrowDate.year}年${record.borrowDate.month}月${record.borrowDate.day}日</td>
                     <td>${record.state}</td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/record/return?bookId=${record.bookId}&borrowDate=${record.borrowDate}">归还</a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -46,6 +50,5 @@ records:${records}
     </div>
     <div class="col-md-1 column"></div>
 </div>
-
 </body>
 </html>

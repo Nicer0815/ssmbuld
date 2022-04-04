@@ -45,10 +45,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的信息 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="${pageContext.request.contextPath}/record/toRecord">我的借阅</a></li>
-                            <li><a href="#">还书申请</a></li>
-                            <li><a href="#">续借申请</a></li>
+                            <li><a href="${pageContext.request.contextPath}/collect/toCollect">我的收藏</a></li>
+                            <li><a href="${pageContext.request.contextPath}/record/toReturn">还书申请</a></li>
+                            <li><a href="${pageContext.request.contextPath}/record/toContinue">续借申请</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">留言&反馈</a></li>
+                            <li><a href="${pageContext.request.contextPath}/quesAns/toQuesAns">留言&反馈</a></li>
                         </ul>
                     </li>
                 </ul>

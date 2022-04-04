@@ -16,7 +16,7 @@ public interface BookService {
     int updateBook(Books books);
 
     //查询一本书
-    Books queryBookById(int id);
+    Books queryBookById(String id);
 
     //查询全部的书
     List<Books> queryAllBook();

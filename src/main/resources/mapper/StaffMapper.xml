@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.StaffMapper">
+
+    <select id="queryStaffByJobId" resultType="Staff">
+        select * from STAFF where JOBID = #{jobId}
+    </select>
+   <!--对sex，rank，password不可修改-->
+    <update id="updateStaff" parameterType="Staff">
+        update STAFF set PERSONID = #{personId},
+                         NAME = #{name},
+                         PHONENUM = #{phoneNum}
+                    where JOBID = #{jobId}
+    </update>
+
+</mapper>

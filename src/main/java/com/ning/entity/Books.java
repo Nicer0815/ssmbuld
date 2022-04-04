@@ -21,5 +21,4 @@ public class Books {
     private String subject;
     private float price;
     private String state;
-
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.BooksCoverMapper">
+
+    <insert id="addBooksCover" parameterType="BooksCover">
+        insert into BOOKS_COVER values (#{bookId},#{cover})
+    </insert>
+
+
+    <select id="queryCoverByBookId" resultType="BooksCover">
+        select * from BOOKS_COVER where BOOKID = #{bookId}
+    </select>
+
+    <update id="updateCover" parameterType="BooksCover">
+        update BOOKS_COVER set BOOKID = #{bookId},COVER = #{cover}
+    </update>
+</mapper>

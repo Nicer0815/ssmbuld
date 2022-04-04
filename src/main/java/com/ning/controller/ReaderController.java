@@ -1,18 +1,25 @@
 package com.ning.controller;
-
+import com.ning.entity.Books;
 import com.ning.entity.Readers;
 import com.ning.service.ReaderService;
+import com.ning.service.impl.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/reader")
 public class ReaderController {
+
+
+    @Autowired
+    @Qualifier("BookServiceImpl")
+    private BookServiceImpl bookService;
+
     @Autowired
     @Qualifier("ReaderServiceImpl")
     private ReaderService readerService;
@@ -23,13 +30,10 @@ public class ReaderController {
     }
 
     @RequestMapping("/allBook")
-    public String toReaderAllBook(){
+    public String toReaderAllBook(Model model){
+        List<Books> bookList = bookService.queryAllBook();
+        model.addAttribute("bookList",bookList);
         return "reader/readerAllBook";
-    }
-
-    @RequestMapping("/nav")//测试
-    public String toNav(){
-        return "/static/common/navi.jsp";
     }
 
     @RequestMapping("/login")
@@ -73,8 +77,12 @@ public class ReaderController {
         return "reader/changePassword";
     }
     @RequestMapping("/changePassword")
-    public String changePassword(String originalPassword,String newPassword,HttpSession session){
+    public String changePassword(String originalPassword,String newPassword,String newPasswordConfirm,HttpSession session){
         session.removeAttribute("msg");
+        if(!newPassword.equals(newPasswordConfirm)){
+            session.setAttribute("msg","新密码与确认密码不一致！");
+            return "redirect:/reader/toChangePassword";
+        }
         Readers reader = (Readers) session.getAttribute("reader");
         if(reader.getCredential().getPassword().equals(originalPassword)){
             System.out.println("密码修改--====---->原："+reader.getCredential().getPassword());
@@ -96,7 +104,8 @@ public class ReaderController {
     }
     @RequestMapping("/aboutUs")
     public String aboutUs(HttpSession session){
-        session.removeAttribute("reader");
+        //session.removeAttribute("reader");
         return "reader/aboutUs";
     }
+
 }

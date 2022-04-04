@@ -21,6 +21,18 @@
     <bean id="RecordServiceImpl" class="com.ning.service.impl.RecordServiceImpl">
         <property name="recordMapper" ref="recordMapper"/>
     </bean>
+    <bean id="CollectServiceImpl" class="com.ning.service.impl.CollectServiceImpl">
+        <property name="collectMapper" ref="collectMapper"/>
+    </bean>
+    <bean id="QuesAnsServiceImpl" class="com.ning.service.impl.QuesAnsServiceImpl">
+        <property name="quesAnsMapper" ref="quesAnsMapper"/>
+    </bean>
+    <bean id="StaffServiceImpl" class="com.ning.service.impl.StaffServiceImpl">
+        <property name="staffMapper" ref="staffMapper"/>
+    </bean>
+    <bean id="BooksCoverServiceImpl" class="com.ning.service.impl.BooksCoverServiceImpl">
+        <property name="booksCoverMapper" ref="booksCoverMapper"/>
+    </bean>
 
 
 

@@ -1,5 +1,4 @@
 package com.ning.entity;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,4 +11,7 @@ public class BookCollect {
     private String readerId;
     private String bookId;
     private Date collectDate;
+    private String title;
+    private String author;
+
 }

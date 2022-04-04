@@ -18,6 +18,10 @@
         <mapper class="com.ning.dao.BookMapper"/>
         <mapper class="com.ning.dao.ReaderMapper"/>
         <mapper class="com.ning.dao.RecordMapper"/>
+        <mapper class="com.ning.dao.CollectMapper"/>
+        <mapper class="com.ning.dao.QuesAnsMapper"/>
+        <mapper class="com.ning.dao.StaffMapper"/>
+        <mapper class="com.ning.dao.BooksCoverMapper"/>
     </mappers>
 
 

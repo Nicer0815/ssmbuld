@@ -77,5 +77,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<a href="${pageContext.request.contextPath}/staff/toLogin" class="form-control">管理员入口</a>
+
 </body>
 </html>

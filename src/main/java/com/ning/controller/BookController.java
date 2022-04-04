@@ -2,6 +2,7 @@ package com.ning.controller;
 
 import com.ning.entity.Books;
 import com.ning.service.BookService;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ public class BookController {
     @Autowired  //找了一下午的bug
     @Qualifier("BookServiceImpl")
     private BookService bookService;
+
+
 
     //查询全部的书籍，并且返回到一个书籍展示页面
     @RequestMapping("/allBook")
@@ -43,7 +46,7 @@ public class BookController {
 
     //跳转到修改页面
     @RequestMapping("/toUpdate")
-    public String toUpdatePaper(int id, Model model){
+    public String toUpdatePaper(String id, Model model){
         Books books = bookService.queryBookById(id);
         model.addAttribute("books",books);
         return "admin/adminUpdateBook";
@@ -72,4 +75,5 @@ public class BookController {
         model.addAttribute("list",list);
         return "admin/adminAllBook";
     }
+
 }

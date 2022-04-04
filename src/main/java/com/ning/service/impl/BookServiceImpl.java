@@ -35,7 +35,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Books queryBookById(int id) {
+    public Books queryBookById(String id) {
         return bookMapper.queryBookById(id);
     }
 

@@ -11,13 +11,24 @@
 
     <update id="updateRecord" parameterType="Record">
         update RECORD set STATE = #{state},
-                        EXPECTDATE = #{expectDate},
-                          RETURNDATE = #{returnDate}
+                        EXPECTDATE = #{expectDate}
+                        /*续借操作returnDate == null 时需要动态SQL判空*/
+                        <if test="returnDate!=null">
+                            RETURNDATE = #{returnDate}
+                        </if>
                     where READERID = #{readerId} and BOOKID = #{bookId} and BORROWDATE = #{borrowDate}
     </update>
 
     <select id="queryRecordByReaderId" resultType="Record">
-        select * from RECORD where READERID = #{readerId}
+        select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId}
+    </select>
+
+    <select id="queryContinueByReaderId" resultType="Record">
+        select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId} and RECORD.STATE = '未还'
+    </select>
+
+    <select id="queryUnReturnByReaderId" resultType="Record">
+        select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId} and (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
     </select>
 
     <select id="queryAllRecord" resultType="Record">

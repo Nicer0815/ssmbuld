@@ -28,6 +28,16 @@ public class RecordServiceImpl implements RecordService {
         return recordMapper.queryAllRecord();
     }
 
+    @Override
+    public List<Record> queryUnReturnByReaderId(String readerId) {
+        return recordMapper.queryUnReturnByReaderId(readerId);
+    }
+
+    @Override
+    public List<Record> queryContinueByReaderId(String readerId) {
+        return recordMapper.queryContinueByReaderId(readerId);
+    }
+
     public void setRecordMapper(RecordMapper recordMapper) {
         this.recordMapper = recordMapper;
     }

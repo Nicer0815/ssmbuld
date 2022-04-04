@@ -12,6 +12,10 @@ public interface RecordMapper {
 
     List<Record> queryRecordByReaderId(String readerId);
 
+    List<Record> queryUnReturnByReaderId(String readerId);
+
+    List<Record> queryContinueByReaderId(String readerId);
+
     List<Record> queryAllRecord();
 
 }

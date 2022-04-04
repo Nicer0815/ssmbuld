@@ -2,43 +2,45 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2022-03-29
-  Time: 23:03
+  Date: 2022-03-30
+  Time: 10:10
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>借阅记录</title>
+    <title>收藏夹</title>
 </head>
 <body>
 <jsp:include page="/static/common/navi.jsp"></jsp:include>
-records:${records}
+${bookCollectList}
+
+
 <div class="row clearfix">
     <div class="col-md-1 column"></div>
     <div class="col-md-10 column">
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th>读者账号</th>
                 <th>ISBN</th>
                 <th>书籍</th>
                 <th>作者</th>
-                <th>借出时间</th>
-                <th>状态</th>
+                <th>收藏日期</th>
             </tr>
             </thead>
             <%--书籍从数据库中查询出来，从这个list中遍历出来：foreach--%>
             <tbody>
 
-            <c:forEach var="record" items="${records}">
+            <c:forEach var="collection" items="${bookCollectList}">
                 <tr>
-                    <td>${record.readerId}</td>
-                    <td>${record.bookId}</td>
-                    <td>${record.title}</td>
-                    <td>${record.author}</td>
-                    <td>${1900+record.borrowDate.year}年${record.borrowDate.month}月${record.borrowDate.day}日</td>
-                    <td>${record.state}</td>
+                    <td>${collection.bookId}</td>
+                    <td>${collection.title}</td>
+                    <td>${collection.author}</td>
+                    <td>${1900+collection.collectDate.year}年${collection.collectDate.month}月${collection.collectDate.day}日</td>
+
+                    <td>
+                        <a href="${pageContext.request.contextPath}/collect/dropCollect?bookId=${collection.bookId}">取消收藏</a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>

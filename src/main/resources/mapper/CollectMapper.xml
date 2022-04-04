@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.CollectMapper">
+
+   <insert id="addCollect" parameterType="BookCollect">
+       insert into BOOK_COLLECT values (#{readerId},#{bookId},#{collectDate})
+   </insert>
+
+    <delete id="deleteCollect" parameterType="BookCollect">
+        delete BOOK_COLLECT where READERID=#{readerId} and BOOKID = #{bookId}
+    </delete>
+
+    <select id="queryCollectByReaderId" resultType="BookCollect">
+        select * from BOOK_COLLECT join BOOKS using (BOOKID)where READERID = #{readerId}
+    </select>
+</mapper>
