@@ -45,7 +45,7 @@
                     <div class="caption">
                         <h4>${book.title}</h4>
                         <p>${book.subject}</p>
-                        <p><a href="#" class="btn btn-primary" role="button">收藏</a>
+                        <p><a href="${pageContext.request.contextPath}/collect/doCollect?bookId=${book.bookId}" class="btn btn-primary" role="button">收藏</a>
                             <a href="#" class="btn btn-default" role="button">借阅</a>
                         </p>
                     </div>

@@ -36,6 +36,9 @@
     <bean id="CommentsServiceImpl" class="com.ning.service.impl.CommentsServiceImpl">
         <property name="commentsMapper" ref="commentsMapper"/>
     </bean>
+    <bean id="BookStateServiceImpl" class="com.ning.service.impl.BookStateServiceImpl">
+        <property name="bookStateMapper" ref="bookStateMapper"/>
+    </bean>
 
 
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ning.dao.BookStateMapper">
+
+    <select id="queryAllState" resultType="BookState">
+        select *
+        from BOOK_STATE
+    </select>
+
+    <select id="queryStateByBookId" resultType="BookState">
+        select *
+        from BOOK_STATE where BOOKID = #{bookId}
+    </select>
+</mapper>

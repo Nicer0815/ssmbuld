@@ -36,9 +36,11 @@ ${bookCollectList}
                     <td>${collection.bookId}</td>
                     <td>${collection.title}</td>
                     <td>${collection.author}</td>
-                    <td>${1900+collection.collectDate.year}年${collection.collectDate.month}月${collection.collectDate.day}日</td>
+                    <td>${1900+collection.collectDate.year}年${collection.collectDate.month+1}月${collection.collectDate.date}日</td>
 
                     <td>
+                        <a href="${pageContext.request.contextPath}/book/details?bookId=${collection.bookId}">查看详情</a>
+                        &nbsp;| &nbsp;
                         <a href="${pageContext.request.contextPath}/collect/dropCollect?bookId=${collection.bookId}">取消收藏</a>
                     </td>
                 </tr>

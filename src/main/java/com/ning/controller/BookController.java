@@ -1,8 +1,10 @@
 package com.ning.controller;
 
+import com.ning.entity.BookState;
 import com.ning.entity.Books;
 import com.ning.entity.Comments;
 import com.ning.service.BookService;
+import com.ning.service.BookStateService;
 import com.ning.service.CommentsService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class BookController {
     @Qualifier("CommentsServiceImpl")
     private CommentsService commentsService;
 
+    @Autowired  //找了一下午的bug
+    @Qualifier("BookStateServiceImpl")
+    private BookStateService bookStateService;
 
     //查询全部的书籍，并且返回到一个书籍展示页面
     @RequestMapping("/allBook")
@@ -84,6 +89,8 @@ public class BookController {
     public String toBookDetailsPage(String bookId,Model model){
         Books book = bookService.queryBookById(bookId);
         List<Comments> comments = commentsService.queryCommentByBookId(bookId);
+        BookState bookState = bookStateService.queryStateByBookId(bookId);
+        model.addAttribute("bookState",bookState);
         model.addAttribute("comments",comments);
         model.addAttribute("detailBook",book);
         return "reader/bookDetails";

@@ -32,8 +32,10 @@
                 <h4>发行日期：${detailBook.pubDate}</h4>
                 <h4>原   价：${detailBook.price}元</h4>
                 <h4>库   存：${detailBook.amount}</h4>
+                <h4>馆藏位置：${bookState.location}</h4>
+                <h4>剩余可借：${bookState.remainNum}</h4>
 
-                    <a href="#" class="btn btn-primary" role="button">收藏</a>
+                    <a href="${pageContext.request.contextPath}/collect/doCollect?bookId=${detailBook.bookId}" class="btn btn-primary" role="button">收藏</a>
                     <a href="#" class="btn btn-default" role="button">借阅</a>
                     <form action="${pageContext.request.contextPath}/comment" method="post">
                         <input type="hidden" name="bookId" value="${detailBook.bookId}">

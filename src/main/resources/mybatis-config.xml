@@ -23,6 +23,7 @@
         <mapper class="com.ning.dao.StaffMapper"/>
         <mapper class="com.ning.dao.BooksCoverMapper"/>
         <mapper class="com.ning.dao.CommentsMapper"/>
+        <mapper class="com.ning.dao.BookStateMapper"/>
     </mappers>
 
 
