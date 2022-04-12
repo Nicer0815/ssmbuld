@@ -49,7 +49,7 @@ public class ReaderController {
                 session.setAttribute("reader",reader);
                 return "reader/readerMain";
             }else {
-                session.setAttribute("msg","密码错误");
+                session.setAttribute("msg","密码错误 ");
                 System.out.println("密码错误："+password);
                 return "reader/readerLogin";
             }

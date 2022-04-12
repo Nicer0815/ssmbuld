@@ -929,6 +929,25 @@ insert into record (readerId, bookId, borrowDate, state, expectDate)
 values('55100209', '9787545559804', to_date('2023-3-12','YYYY-MM-DD'), '未还', to_date('2023-4-12','YYYY-MM-DD'));
 insert into record (readerId, bookId, borrowDate, state, expectDate)
 values('55100101', '9787545559804', to_date('2023-3-12','YYYY-MM-DD'), '未还', to_date('2023-4-12','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787111599715', to_date('2022-01-01','YYYY-MM-DD'), '丢失', to_date('2022-02-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787111618331', to_date('2022-02-01','YYYY-MM-DD'), '丢失', to_date('2022-03-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787506365437', to_date('2022-03-01','YYYY-MM-DD'), '损坏', to_date('2022-04-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787532734030', to_date('2022-03-01','YYYY-MM-DD'), '续借', to_date('2022-04-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787570510542', to_date('2022-04-01','YYYY-MM-DD'), '待还', to_date('2022-05-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787519300203', to_date('2022-04-01','YYYY-MM-DD'), '逾期', to_date('2022-05-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787550280469', to_date('2022-05-01','YYYY-MM-DD'), '逾还', to_date('2022-06-01','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100101', '9787545559804', to_date('2022-11-30','YYYY-MM-DD'), '丢失', to_date('2022-12-30','YYYY-MM-DD'));
+
+
+
 ```
 
 #### 8、handle_reader表
@@ -977,6 +996,27 @@ values('55100104', to_date('2023-3-5','YYYY-MM-DD'), '2002', '书丢了怎么办
 insert into ques_ans (readerId, askDate, question)
 values('55100106', to_date('2023-3-28','YYYY-MM-DD'), '图书馆什么时候重新开馆？');
 
+insert into ques_ans
+values('55100101', to_date('2022-01-01','YYYY-MM-DD'), '1001', '图书馆今日开馆吗？', '你好同学，开');
+insert into ques_ans
+values('55100101', to_date('2022-01-02','YYYY-MM-DD'), '1002', '图书馆需要志愿者吗？', '你好同学，需要，可以来前台报名');
+insert into ques_ans
+values('55100101', to_date('2022-02-14','YYYY-MM-DD'), '1003', '图书馆提供三餐吗？', '你好同学，不提供');
+insert into ques_ans
+values('55100101', to_date('2022-05-14','YYYY-MM-DD'), '1004', '图书馆除了学习还可以干什么？', '你好同学，除了学习还可以上厕所');
+insert into ques_ans
+values('55100101', to_date('2022-06-14','YYYY-MM-DD'), '2002', '可以在图书馆内跳舞吗？', '你好同学，不支持您这样做');
+insert into ques_ans
+values('55100101', to_date('2022-07-10','YYYY-MM-DD'), '2003', '可以在图书馆喝蜜雪冰城吗？', '你好同学，不能');
+insert into ques_ans
+values('55100101', to_date('2022-08-26','YYYY-MM-DD'), '2004', '可以在图书馆喝茶百道吗？', '你好同学，不能');
+insert into ques_ans
+values('55100101', to_date('2023-04-11','YYYY-MM-DD'), '4001', '请问这个学期图书馆还能开馆吗？', '你好同学，能否开馆需要根据疫情发展情况而定。');
+insert into ques_ans
+values('55100101', to_date('2022-12-01','YYYY-MM-DD'), '2001', '请问账户被锁定该怎么解锁？', '你好同学，查看提问区以往问题');
+
+
+
 ```
 
 #### 11、comments表
@@ -994,6 +1034,37 @@ insert into comments
 values('9787506365437', '55100207', to_date('2022-10-23','YYYY-MM-DD'), '呜呜呜呜，余华好“温柔”，我真得哭死');
 insert into comments
 values('9787111618331', '55100209', to_date('2022-9-27','YYYY-MM-DD'), '很不错，已经给孩子买了三箱了');
+
+insert into comments
+values('9787111599715', '55100101', to_date('2022-01-21','YYYY-MM-DD'), '计算机网络太简单了！');
+insert into comments
+values('9787111618331', '55100101', to_date('2022-01-21','YYYY-MM-DD'), '设计模式学会了！');
+insert into comments
+values('9787506365437', '55100101', to_date('2022-02-21','YYYY-MM-DD'), '好看');
+insert into comments
+values('9787532734030', '55100101', to_date('2022-03-21','YYYY-MM-DD'), '太好看了');
+insert into comments
+values('9787570510542', '55100101', to_date('2022-04-21','YYYY-MM-DD'), '你可以永远相信鲁迅');
+insert into comments
+values('9787519300203', '55100101', to_date('2022-05-21','YYYY-MM-DD'), '中国通史yyds');
+insert into comments
+values('9787550280469', '55100101', to_date('2022-07-21','YYYY-MM-DD'), '精彩');
+insert into comments
+values('9787545559804', '55100101', to_date('2022-09-21','YYYY-MM-DD'), '精彩绝伦');
+insert into comments
+values('11111', '55100101', to_date('2022-09-27','YYYY-MM-DD'), '最爱Ubuntu Linux');
+insert into comments
+values('9787111599715', '55100101', to_date('2022-08-01','YYYY-MM-DD'), '这本书在知识点的讲述上深入浅出，通俗易懂，很喜欢');
+insert into comments
+values('9787519300203', '55100101', to_date('2022-09-27','YYYY-MM-DD'), '呜呜呜呜，怡亲王，我的老十三你为什么走得那么早');
+insert into comments
+values('9787550282131', '55100101', to_date('2023-02-13','YYYY-MM-DD'), '朋友大力推荐，可惜没看几页，不过老子的思想真的是厉害');
+insert into comments
+values('9787806672693', '55100101', to_date('2022-09-27','YYYY-MM-DD'), '想借');
+insert into comments
+values('9787010221779', '55100101', to_date('2023-04-17','YYYY-MM-DD'), '学法懂法守法做好人');
+
+
 
 ```
 
