@@ -7,6 +7,14 @@
         select * from QUES_ANS where READERID = #{readerId}
     </select>
 
+    <select id="queryAllQues" resultType="QuesAns">
+        select * from QUES_ANS
+    </select>
+
+    <select id="queryUnsolvedQues" resultType="QuesAns">
+        select * from QUES_ANS where ANSWER is null
+    </select>
+
     <insert id="addQues" parameterType="QuesAns">
         insert into QUES_ANS (READERID, ASKDATE, QUESTION)
         values (#{readerId},#{askDate},#{question})

@@ -27,6 +27,7 @@
         <form action="${pageContext.request.contextPath}/book/updateBook" method="post">
             <%--前端传递隐藏域--%>
                 <input type="hidden" name="bookId" value="${books.bookId}">
+                <input type="hidden" name="pubDate" value="${books.pubDate}">
 
                 <div class="form-group">
                     <label> 书籍名称：</label>
@@ -36,10 +37,10 @@
                     <label> 作者：</label>
                     <input type="text" name="author" class="form-control" value="${books.author}" required>
                 </div>
-                <div class="form-group">
-                    <label>发行日期：</label>
-                    <input type="date" name="pubDate" class="form-control" value="${books.pubDate}" required>
-                </div>
+<%--                <div class="form-group">--%>
+<%--                    <label>发行日期：</label>--%>
+<%--                    <input type="date" name="pubDate" class="form-control" value="${books.pubDate}" required>--%>
+<%--                </div>--%>
                 <div class="form-group">
                     <label>发行商：</label>
                     <input type="text" name="press" class="form-control" value="${books.press}" required>

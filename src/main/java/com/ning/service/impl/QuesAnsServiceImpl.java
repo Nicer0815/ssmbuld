@@ -28,4 +28,14 @@ public class QuesAnsServiceImpl implements QuesAnsService {
     public void setQuesAnsMapper(QuesAnsMapper quesAnsMapper) {
         this.quesAnsMapper = quesAnsMapper;
     }
+
+    @Override
+    public List<QuesAns> queryAllQues() {
+        return quesAnsMapper.queryAllQues();
+    }
+
+    @Override
+    public List<QuesAns> queryUnsolvedQues() {
+        return quesAnsMapper.queryUnsolvedQues();
+    }
 }

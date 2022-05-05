@@ -15,5 +15,7 @@ public interface RecordService {
 
     List<Record> queryContinueByReaderId(String readerId);
 
+    List<Record> queryUnReturn();
+
     List<Record> queryAllRecord();
 }

@@ -10,4 +10,8 @@ public interface QuesAnsService {
     int addQues(QuesAns quesAns);
 
     int dropQues(QuesAns quesAns);
+
+    List<QuesAns> queryAllQues();
+
+    List<QuesAns> queryUnsolvedQues();
 }

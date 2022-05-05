@@ -31,6 +31,10 @@
         select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId} and (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
     </select>
 
+    <select id="queryUnReturn" resultType="Record">
+        select * from RECORD join BOOKS using (BOOKID) where (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
+    </select>
+
     <select id="queryAllRecord" resultType="Record">
         select * from RECORD
     </select>

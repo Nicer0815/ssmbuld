@@ -14,8 +14,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/reader")
 public class ReaderController {
-
-
     @Autowired
     @Qualifier("BookServiceImpl")
     private BookServiceImpl bookService;
@@ -47,7 +45,7 @@ public class ReaderController {
                 //session.setAttribute("msg","密码正确");
                 session.setAttribute("readerName",reader.getName());
                 session.setAttribute("reader",reader);
-                return "reader/readerMain";
+                return "redirect:/reader/info";
             }else {
                 session.setAttribute("msg","密码错误 ");
                 System.out.println("密码错误："+password);
@@ -116,6 +114,15 @@ public class ReaderController {
         List<Books> list = bookService.queryBookByName("%"+bookName+"%");
         model.addAttribute("bookList",list);
         return "reader/readerAllBook";
+    }
+
+    @RequestMapping("/changePhoneNum")
+    public String changePhoneNum(int phoneNum,HttpSession session){
+        Readers reader = (Readers) session.getAttribute("reader");
+        ((Readers) session.getAttribute("reader")).setPhoneNum(phoneNum);
+        reader.setPhoneNum(phoneNum);
+        readerService.updateReader(reader);
+        return "reader/readerInfo";
     }
 
 }
