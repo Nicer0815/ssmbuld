@@ -9,6 +9,7 @@ import com.ning.entity.Staff;
 import com.ning.service.QuesAnsService;
 import com.ning.service.RecordService;
 import com.ning.service.StaffService;
+import com.ning.utils.DynamicDataSourceHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -41,6 +42,7 @@ public class StaffController {
 
     @RequestMapping("/login")
     public String login(String jobId, String password, HttpSession session){
+        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         System.out.println("jobId:"+ jobId+" password:"+password+"  ==>login");
         Staff staff = staffService.queryStaffByJobId(jobId);
         if(staff != null){

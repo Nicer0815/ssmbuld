@@ -3,6 +3,7 @@ import com.ning.entity.Books;
 import com.ning.entity.Readers;
 import com.ning.service.ReaderService;
 import com.ning.service.impl.BookServiceImpl;
+import com.ning.utils.DynamicDataSourceHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -36,8 +37,17 @@ public class ReaderController {
 
     @RequestMapping("/login")
     public String login(String readerId, String password,HttpSession session){
+        //
+        System.out.println("datasource!!!!-------------------------------");
+        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
+        System.out.println(DynamicDataSourceHolder.getDataSourceType());
+        //
         System.out.println("readerId:"+ readerId+" password:"+password+"  ==>login");
         Readers reader = readerService.queryReaderByReaderId(readerId);
+        //
+        DynamicDataSourceHolder.clearDataSourceType();
+        System.out.println(DynamicDataSourceHolder.getDataSourceType());
+        //
         if(reader != null){
             System.out.println(reader);
             if(reader.getCredential().getPassword().equals(password)){

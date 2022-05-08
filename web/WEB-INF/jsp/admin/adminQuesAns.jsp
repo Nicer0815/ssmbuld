@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+<jsp:include page="/static/common/navi-admin.jsp"></jsp:include>
 </body>
 </html>

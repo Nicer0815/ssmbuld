@@ -1,3 +1,37 @@
+
+
+# 0、软件评测依据
+
+**评分标准：**
+
+¨**数据设计合理**  **30%**
+
+¨**基本功能正确**  **20%**
+
+¨**用户界面美观**  **10%**
+
+¨**系统操作方便**  **10%**
+
+¨**模块结构清晰**  **10%**
+
+¨**程序命名规范**  **10%**
+
+¨**程序文档完整**  **10%**
+
+==数据设计 30% ：==
+
+- [x] **数据表**
+- [x] **==用户==**
+- [x] **表空间**
+- [x] **主键外键**
+- [x] **==索引==**
+- [x] ==**视图**==
+- [ ] **序列**
+- [x] **触发器**
+- [ ] **过程和函数**
+- [x] **大对象**
+- [x] 其他规范：无select * 、
+
 # 1、需求分析
 
 ## 1.1、学校图书管理系统需求分析
@@ -1803,6 +1837,291 @@ BEGIN
 END;
 
 
+```
+
+#### 14、reader_info视图
+
+```sql
+CREATE VIEW reader_info AS
+SELECT
+    READERID,
+    "NAME",
+    SEX,
+    PHONENUM,
+    SCORE,
+    BORROWNUM,
+    STATE
+FROM
+    readers join credentials using (readerId)
+```
+
+
+
+
+
+## 2.6、多数据源设计
+
+```sql
+--背景
+grant dba to lyn;
+grant connect to wry;
+grant resource to lly;
+```
+
+#### 2.6.1、数据库重构需求【5月】：
+
+1、【用户】dba级别用户禁用【目前正使用的 lyn 用户为dba级别用户】
+
+2、【视图】设计视图
+
+```sql
+CREATE VIEW reader_info AS
+SELECT
+    READERID,
+    "NAME",
+    SEX,
+    PHONENUM,
+    SCORE,
+    BORROWNUM,
+    STATE
+FROM
+    readers join credentials using (readerId)
+```
+
+
+
+3、【索引】设计索引
+
+```sql
+create index book_kind on books(subject);
+create index book_title on books(title);
+```
+
+
+
+4、【序列】设计序列
+
+
+
+5、【触发器】
+
+```sql
+--借书之后剩余数量自动减一
+create or replace trigger t1_borrow_books
+before insert on RECORD --在 RECORD 执行 insert 操作前触发
+for each row --使用行级触发器才能获取到操作行的值
+declare
+--bookId_val record.bookid%type,
+begin
+    -- 使用 select into 获取被触发行的旧值(:old获取)，然后赋给变量 dept_val
+    --select :new.bookid into bookId_val;
+    update LYN.Book_State set remainnum = remainnum - 1 where book_state.bookid = :new.bookid;
+end;
+
+
+--还书之后剩余数量自动加一
+create or replace trigger t2_return_books
+before update on RECORD --在 RECORD 执行 update 操作前触发
+for each row --使用行级触发器才能获取到操作行的值
+declare
+--bookId_val record.bookid%type,
+begin
+    -- 使用 select into 获取被触发行的旧值(:old获取)，然后赋给变量 dept_val
+    --select :new.bookid into bookId_val;
+    if :new.state = '已还' then
+       update LYN.Book_State set remainnum = remainnum + 1 where book_state.bookid = :new.bookid;
+    end if;   
+end;
+```
+
+
+
+**需设计：**
+
+1、resource级别用户
+
+2、connect级别用户 查询权限
+
+#### 2.6.2、用户权限需求
+
+```properties
+1、查询
+2、修改
+3、删除
+4、增加
+```
+
+##### readers
+
+| READERS表    | READERID | NAME | SEX  | PHONENUM |
+| ------------ | -------- | ---- | ---- | -------- |
+| 用户权限：1  | 1        | 1    | 1    | 12       |
+| 管理员权限： |          |      |      |          |
+
+##### credentials
+
+| CREDENTIALS表 | READERID | HANDLEDATE | PASSWORD | SCORE | BORROWNUM | STATE |
+| ------------- | -------- | ---------- | -------- | ----- | --------- | ----- |
+| 用户权限：1   | 1        | 1          | 12       | 1     | 1         | 1     |
+| 管理员权限：  |          |            |          |       |           |       |
+
+##### readerInfo视图
+
+| READERINFO视图 | READERID | NAME | SEX  | PHONENUM | SCORE | BORROWNUM | STATE |
+| -------------- | -------- | ---- | ---- | -------- | ----- | --------- | ----- |
+| 用户权限：     | 1        | 1    | 1    | 12       | 1     | 1         | 1     |
+| 管理员权限：   |          |      |      |          |       |           |       |
+
+##### books
+
+| BOOKS表          | BOOKID | TITLE | AUTORO | PUBDATE | PRESS | AMOUNT | SUBJECT | PRICE | STATE |
+| ---------------- | ------ | ----- | ------ | ------- | ----- | ------ | ------- | ----- | ----- |
+| 用户权限：1      | 1      | 1     | 1      | 1       | 1     | 1      | 1       | 1     | 1     |
+| 管理员权限：1234 |        |       |        |         |       |        |         |       |       |
+
+##### book_state
+
+| BOOK_STATE表     | BOOKID | TITLE | LOCATION | REMAINNUM |
+| ---------------- | ------ | ----- | -------- | --------- |
+| 用户权限：1      | 1      | 1     | 1        | 1         |
+| 管理员权限：1234 |        |       |          |           |
+
+##### staff
+
+| STAFF表        | JOBID | PERSONID | NAME | PASSWORD | RANK | SEX  | PHONENUM |
+| -------------- | ----- | -------- | ---- | -------- | ---- | ---- | -------- |
+| 用户权限：null |       |          |      |          |      |      |          |
+| 管理员权限：   |       |          |      |          |      |      |          |
+
+##### entry_info
+
+| ENTRY_INFO表   | CHECKID | BOOKID | ENTRYDATE | AMOUNT | JOBID | PRICE |
+| -------------- | ------- | ------ | --------- | ------ | ----- | ----- |
+| 用户权限：null |         |        |           |        |       |       |
+| 管理员权限：   |         |        |           |        |       |       |
+
+##### record
+
+| RECORD表     | READERID | BOOKID | BORROWDATE | STATE | EXPECTDATE | RETURNDATE |
+| ------------ | -------- | ------ | ---------- | ----- | ---------- | ---------- |
+| 用户权限：   | 1        | 1      | 1          | 12    | 12         | 1          |
+| 管理员权限： |          |        |            |       |            |            |
+
+##### handle_reader
+
+| HADNLE_READER表 | READERID | REPORTDATE | JOBID | DISPOSEDATE | STATE |
+| --------------- | -------- | ---------- | ----- | ----------- | ----- |
+| 用户权限：null  |          |            |       |             |       |
+| 管理员权限：    |          |            |       |             |       |
+
+##### book_collect
+
+| BOOK_COLLECT表   | READERID | BOOKID | COLLECTDATE |
+| ---------------- | -------- | ------ | ----------- |
+| 用户权限：134    | 1        | 1      | 1           |
+| 管理员权限：null |          |        |             |
+
+##### ques_ans
+
+| QUES_ANS表      | READERID | ASKDATE | JOBID | QUESTION | ANSWER |
+| --------------- | -------- | ------- | ----- | -------- | ------ |
+| 用户权限：14    | 1        | 1       | 1     | 1        | 1      |
+| 管理员权限：134 |          |         |       |          |        |
+
+##### comments
+
+| COMMENTS表      | BOOKID | READERID | COMMENTDATE | CONTENT |
+| --------------- | ------ | -------- | ----------- | ------- |
+| 用户权限：14    | 1      | 1        | 1           | 1       |
+| 管理员权限：134 |        |          |             |         |
+
+##### report_book
+
+| REPORT_BOOK表   | CHECKID | BOOKID | JOBID | REPORTDATE | DISPOSEDATE | AMOUNT | REASON | STATE |
+| --------------- | ------- | ------ | ----- | ---------- | ----------- | ------ | ------ | ----- |
+| 用户权限：null  |         |        |       |            |             |        |        |       |
+| 管理员权限：134 |         |        |       |            |             |        |        |       |
+
+##### books_cover
+
+| BOOKS_COVER表    | BOOKID | COVER |
+| ---------------- | ------ | ----- |
+| 用户权限：1      | 1      | 1     |
+| 管理员权限：1234 |        |       |
+
+#### 2.6.3、对象权限授予
+
+```sql
+--LYN用户下对wry用户授权，权限严格遵循2.6.2用户权限需求的设计
+--注：wry用户为connect角色用户
+--lyn用户为DBA角色用户
+--lly用户为resource角色用户
+grant select,update(PHONENUM) on readers to wry;
+grant select,update(PASSWORD) on credentials to wry;
+grant select,update(PHONENUM) on reader_info to wry;
+grant select on books to wry;
+grant select on book_state to wry;
+grant select,insert,update(STATE,EXPECTDATE) on record to wry;
+grant select,insert,delete on book_collect to wry;
+grant select,insert on ques_ans to wry;
+grant select,insert on comments to wry;
+grant select on books_cover to wry;
 
 ```
+
+
+
+
+
+
+
+
+
+# 4、测试
+
+### 触发器测试(LYN用户下测试通过)
+
+```sql
+create or replace trigger t1_borrow_books
+before insert on RECORD --在 RECORD 执行 insert 操作前触发
+for each row --使用行级触发器才能获取到操作行的值
+declare
+--bookId_val record.bookid%type,
+begin
+    -- 使用 select into 获取被触发行的旧值(:old获取)，然后赋给变量 dept_val
+    --select :new.bookid into bookId_val;
+    update LYN.Book_State set remainnum = remainnum - 1 where book_state.bookid = :new.bookid;
+end;
+
+
+create or replace trigger t2_return_books
+before update on RECORD --在 RECORD 执行 insert 操作前触发
+for each row --使用行级触发器才能获取到操作行的值
+declare
+--bookId_val record.bookid%type,
+begin
+    -- 使用 select into 获取被触发行的旧值(:old获取)，然后赋给变量 dept_val
+    --select :new.bookid into bookId_val;
+    if :new.state = '已还' then
+       update LYN.Book_State set remainnum = remainnum + 1 where book_state.bookid = :new.bookid;
+    end if;   
+end;
+
+
+select * from book_state;
+select * from record;
+
+
+insert into record 
+values('55100102', '11111', to_date('2022-10-12','YYYY-MM-DD'), '未还',
+ to_date('2022-11-12','YYYY-MM-DD'), to_date('2022-10-21','YYYY-MM-DD'));
+ 
+update record set state = '已还' 
+where bookid = '11111' and readerid = '55100102';
+
+
+delete from record where bookid = '11111' and readerid = '55100102';
+```
+
+
 

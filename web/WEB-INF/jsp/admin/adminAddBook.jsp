@@ -9,11 +9,9 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-<%--    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">--%>
 </head>
+<body>
+<jsp:include page="/static/common/navi-admin.jsp"></jsp:include>
     <div class="container">
         <div class="clearfix">
             <div class="col-md-12 column">
@@ -66,8 +64,6 @@
             </form>
         </div>
     </div>
-
-<body>
 
 </body>
 </html>

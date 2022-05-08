@@ -6,7 +6,7 @@
 
     <select id="queryReaderByReaderId" resultMap="ReaderCredentials">
         select * from
-        readers join credentials using (readerId)
+        LYN.readers join LYN.credentials using (readerId)
         where readerId = #{readerId}
     </select>
 

@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar my-style-2" style="z-index: 8888">
+<nav class="navbar my-style-2 navbar-inverse" style="z-index: 8888">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/index.jsp">首页</a></li>
-                <li><a href="${pageContext.request.contextPath}/book/allBook">书籍中心</a></li>
+                <li><a href="${pageContext.request.contextPath}/book/allBook">书籍管理</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">工作列表 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
