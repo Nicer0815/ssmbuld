@@ -32,7 +32,7 @@ public class CollectController {
 
 
     @RequestMapping("/doCollect")
-    public String doCollect(String bookId,HttpSession session){
+    public String doCollect(String bookId,HttpSession session,Model model){
         Readers reader = (Readers) session.getAttribute("reader");
         if(reader == null){
             return "reader/readerLogin";
@@ -41,6 +41,7 @@ public class CollectController {
         for (BookCollect collect : collects) {
             if (collect.getBookId().equals(bookId)){
                 System.out.println("------doCollect重复收藏！-----");
+                model.addAttribute("msg","请不要重复收藏！");
                 return "reader/readerMain";
             }
         }

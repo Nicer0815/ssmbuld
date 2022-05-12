@@ -42,7 +42,7 @@ public class StaffController {
 
     @RequestMapping("/login")
     public String login(String jobId, String password, HttpSession session){
-        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
+        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_DEVELOPER);
         System.out.println("jobId:"+ jobId+" password:"+password+"  ==>login");
         Staff staff = staffService.queryStaffByJobId(jobId);
         if(staff != null){

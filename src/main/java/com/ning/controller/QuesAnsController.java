@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -30,5 +31,16 @@ public class QuesAnsController {
         model.addAttribute(quesAns);
         return "reader/readerQuesAns";
     }
+    @RequestMapping("/askQuestions")
+    public String askQuestions(Model model, HttpSession session,String question){
+        Readers reader = (Readers)session.getAttribute("reader");
+        QuesAns quesAns = new QuesAns();
+        quesAns.setReaderId(reader.getReaderId());
+        quesAns.setQuestion(question);
+        quesAns.setAskDate(new Date());
+        quesAnsService.addQues(quesAns);
+        return "redirect:/quesAns/toQuesAns";
+    }
+
 
 }
