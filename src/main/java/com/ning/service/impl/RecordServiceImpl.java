@@ -19,6 +19,11 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
+    public int staffReturnBook(Record record) {
+        return recordMapper.staffReturnBook(record);
+    }
+
+    @Override
     public List<Record> queryRecordByReaderId(String readerId) {
         return recordMapper.queryRecordByReaderId(readerId);
     }

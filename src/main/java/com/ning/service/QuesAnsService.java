@@ -11,7 +11,11 @@ public interface QuesAnsService {
 
     int dropQues(QuesAns quesAns);
 
+    int quesAnsReply(QuesAns quesAns);
+
     List<QuesAns> queryAllQues();
 
     List<QuesAns> queryUnsolvedQues();
+
+    List<QuesAns> querySolvedQues();
 }

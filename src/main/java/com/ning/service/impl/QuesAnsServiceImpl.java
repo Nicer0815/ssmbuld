@@ -25,6 +25,11 @@ public class QuesAnsServiceImpl implements QuesAnsService {
         return quesAnsMapper.dropQues(quesAns);
     }
 
+    @Override
+    public int quesAnsReply(QuesAns quesAns) {
+        return quesAnsMapper.quesAnsReply(quesAns);
+    }
+
     public void setQuesAnsMapper(QuesAnsMapper quesAnsMapper) {
         this.quesAnsMapper = quesAnsMapper;
     }
@@ -37,5 +42,10 @@ public class QuesAnsServiceImpl implements QuesAnsService {
     @Override
     public List<QuesAns> queryUnsolvedQues() {
         return quesAnsMapper.queryUnsolvedQues();
+    }
+
+    @Override
+    public List<QuesAns> querySolvedQues() {
+        return quesAnsMapper.querySolvedQues();
     }
 }

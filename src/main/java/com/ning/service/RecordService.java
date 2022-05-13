@@ -9,6 +9,8 @@ public interface RecordService {
 
     int updateRecord(Record record);
 
+    int staffReturnBook(Record record);
+
     List<Record> queryRecordByReaderId(String readerId);
 
     List<Record> queryUnReturnByReaderId(String readerId);

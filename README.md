@@ -858,6 +858,79 @@ insert into book_state values('9787111618331','设计模式'，'1A-01-2',20);
 insert into book_state values('9787506365437','活着'，'1B-01-1',20);
 insert into book_state values('9787532734030','月亮和六便士'，'1B-01-1',18);
 insert into book_state values('9787570510542','热风'，'1B-01-2',20);
+--第二次插入
+insert into book_state values('9787519300203','中国通史'，'1C-01-1',20);
+insert into book_state values('9787550280469','史记'，'1C-01-1',20);
+insert into book_state values('9787545559804','帝国的崩裂'，'1C-01-1',20);
+insert into book_state values('9787030201041','内科学案例版'，'2A-01-1',20);
+insert into book_state values('9787519249496','局部解剖学'，'2A-01-1',20);
+insert into book_state values('9787122356840','外科学'，'2A-01-1',20);
+insert into book_state values('9787107278303','标准日本语'，'2B-01-1',20);
+insert into book_state values('9787562832614','日语教程'，'2B-01-1',20);
+insert into book_state values('9787513542272','书虫'，'2B-01-1',20);
+insert into book_state values('9787010009223','毛泽东选集'，'2C-01-1',20);
+insert into book_state values('9787550218222','资本论'，'2C-01-1',20);
+insert into book_state values('9787514709858','中国制度面对面'，'2C-01-1',20);
+insert into book_state values('9787010221779','中华人民共和国民法典'，
+                              '3A-01-1',20);
+insert into book_state values('9787100074483','中国法律与中国社会'，
+                              '3A-01-1',20);
+insert into book_state values('9789301312889','法学引注手册'，'3A-01-1',20);
+insert into book_state values('9787508091044','周易'，'3B-01-1',20);
+insert into book_state values('9787550282131','道德经'，'3B-01-1',20);
+insert into book_state values('9787506046114','易经'，'3B-01-1',20);
+insert into book_state values('9787806928622','中国钢琴音乐研究'，'3C-01-1',20);
+insert into book_state values('9787806672693','钢琴基础教程'，'3C-01-1',20);
+insert into book_state values('9787115519955','音乐制作自学手册'，'3C-01-1',20);
+insert into book_state values('9787301284964','摄影美学'，'4A-01-1',20);
+insert into book_state values('9787115498489','光影艺术'，'4A-01-1',20);
+insert into book_state values('9787547430798','老照片'，'4A-01-1',20);
+insert into book_state values('9787111213826','Java编程思想'，'1A-01-2',20);
+insert into book_state values('9787111528395','数据结构与算法分析'，
+                              '1A-01-2',20);
+insert into book_state values('9787111636663','Java核心技术'，'1A-01-2',20);
+insert into book_state values('9787302517597','Java从入门到精通'，'1A-02-1',20);
+insert into book_state values('9787513331418','第七天'，'1B-01-2',20);
+insert into book_state values('9787544766500','杀死一只知更鸟'，'1B-01-2',20);
+insert into book_state values('9787506365604','在细雨中呼喊'，'1B-01-2',20);
+insert into book_state values('9787224127898','山月记'，'1B-02-1',20);
+insert into book_state values('9787508660752','人类简史'，'1C-01-2',20);
+insert into book_state values('9787108009821','万历十五年'，'1C-01-2',20);
+insert into book_state values('9787516827628','趣味中国史'，'1C-01-2',20);
+insert into book_state values('9787108010360','中国大历史'，'1C-02-1',20);
+insert into book_state values('9787117255561','中医入门'，'2A-01-2',20);
+insert into book_state values('9787513248006','黄帝内经'，'2A-01-2',20);
+insert into book_state values('9787521401554','难经'，'2A-01-2',20);
+insert into book_state values('9787802312364','伤寒论'，'2A-02-1',20);
+insert into book_state values('9787560017273','词汇大全'，'2B-01-2',20);
+insert into book_state values('9787560013466','新概念英语一'，'2B-01-2',20);
+insert into book_state values('9787560013473','新概念英语二'，'2B-01-2',20);
+insert into book_state values('9787560018737','新概念英语三'，'2B-02-1',20);
+insert into book_state values('9787503561634','习近平的七年知青岁月'，
+                              '2C-01-2',20);
+insert into book_state values('9787509837412','中国共产党的九十年'，
+                              '2C-01-2',20);
+insert into book_state values('9787509909294','红色延安故事'，'2C-01-2',20);
+insert into book_state values('9787503565397','习近平在正定'，'2C-02-1',20);
+insert into book_state values('2402220000046','刑法学讲义'，'3A-01-2',20);
+insert into book_state values('9787544766630','论法的精神'，'3A-01-2',20);
+insert into book_state values('9787519742683','中国民法典新规则要点',
+                              '3A-01-2',20);
+insert into book_state values('9787301264874','要命的选择'，'3A-02-1',20);
+insert into book_state values('9787559614032','传习录'，'3B-01-2',20);
+insert into book_state values('9787559402035','知行合一'，'3B-01-2',20);
+insert into book_state values('9787544334532','梅花易数'，'3B-01-2',20);
+insert into book_state values('9787518026517','素书全鉴'，'3B-02-1',20);
+insert into book_state values('9787313177063','久石让音乐手记'，'3C-01-2',20);
+insert into book_state values('9787805536170','现代钢琴教程'，'3C-01-2',20);
+insert into book_state values('9787805534404','钢琴手指练习'，'3C-01-2',20);
+insert into book_state values('9787302526308','聆听音乐'，'3C-02-1',20);
+insert into book_state values('9787121365409','摄影范谈集'，'4A-01-2',20);
+insert into book_state values('9787512202153','写真一瞬'，'4A-01-2',20);
+insert into book_state values('9787540250379','中国照相机锦集'，'4A-01-2',20);
+insert into book_state values('9787115484291','一期一会'，'4A-02-1',20);
+
+
 ```
 
 #### 5、staff表
@@ -981,7 +1054,83 @@ insert into record (readerId, bookId, borrowDate, state, expectDate)
 values('55100101', '9787545559804', to_date('2022-11-30','YYYY-MM-DD'), '丢失', to_date('2022-12-30','YYYY-MM-DD'));
 
 
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100102', '9787111213826', to_date('2023-5-10','YYYY-MM-DD'), '未还', to_date('2023-6-12','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100103', '9787111636663', to_date('2023-5-5','YYYY-MM-DD'), '未还', to_date('2023-6-5','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100103', '9787302517597', to_date('2023-5-5','YYYY-MM-DD'), '未还', to_date('2023-6-5','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100105', '9787513331418', to_date('2023-5-8','YYYY-MM-DD'), '未还', to_date('2023-6-8','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100106', '9787544766500', to_date('2023-4-30','YYYY-MM-DD'), '未还', to_date('2023-5-30','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100107', '9787506365604', to_date('2023-4-19','YYYY-MM-DD'), '未还', to_date('2023-4-19','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100108', '9787224127898', to_date('2023-5-11','YYYY-MM-DD'), '未还', to_date('2023-6-11','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100110', '9787513331418', to_date('2023-5-12','YYYY-MM-DD'), '未还', to_date('2023-6-12','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100111', '9787224127898', to_date('2023-5-11','YYYY-MM-DD'), '未还', to_date('2023-6-11','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100110', '9787544766500', to_date('2023-4-13','YYYY-MM-DD'), '未还', to_date('2023-5-13','YYYY-MM-DD'));
 
+
+
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100201', '9787513331418', to_date('2023-4-1','YYYY-MM-DD'), '逾期', to_date('2023-5-1','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100203', '9787506365604', to_date('2023-4-5','YYYY-MM-DD'), '逾期', to_date('2023-4-5','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100203', '9787224127898', to_date('2023-4-5','YYYY-MM-DD'), '逾期', to_date('2023-4-5','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100206', '9787108009821', to_date('2023-4-8','YYYY-MM-DD'), '逾期', to_date('2023-4-8','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100206', '9787544766500', to_date('2023-4-8','YYYY-MM-DD'), '逾期', to_date('2023-5-8','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100107', '9787108010360', to_date('2023-4-19','YYYY-MM-DD'), '逾期', to_date('2023-4-19','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100208', '9787224127898', to_date('2023-3-21','YYYY-MM-DD'), '逾期', to_date('2023-4-21','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100209', '9787513248006', to_date('2023-3-12','YYYY-MM-DD'), '逾期', to_date('2023-4-12','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100211', '9787802312364', to_date('2023-4-2','YYYY-MM-DD'), '逾期', to_date('2023-5-2','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100114', '9787560018737', to_date('2023-3-27','YYYY-MM-DD'), '逾期', to_date('2023-4-27','YYYY-MM-DD'));
+
+
+
+insert into record 
+values('55100102', '9787509909294', to_date('2022-9-22','YYYY-MM-DD'), '逾还', to_date('2022-10-22','YYYY-MM-DD'), to_date('2022-11-14','YYYY-MM-DD'));
+insert into record 
+values('55100103', '9787503565397', to_date('2022-10-12','YYYY-MM-DD'), '逾还', to_date('2022-11-12','YYYY-MM-DD'), to_date('2022-11-17','YYYY-MM-DD'));
+insert into record 
+values('55100202', '9787509837412', to_date('2022-8-2','YYYY-MM-DD'), '逾还', to_date('2022-9-2','YYYY-MM-DD'), to_date('2022-10-11','YYYY-MM-DD'));
+insert into record 
+values('55100204', '2402220000046', to_date('2022-8-29','YYYY-MM-DD'), '逾还', to_date('2022-9-29','YYYY-MM-DD'), to_date('2022-10-30','YYYY-MM-DD'));
+insert into record 
+values('55100107', '9787559614032', to_date('2022-1-22','YYYY-MM-DD'), '逾还', to_date('2022-2-22','YYYY-MM-DD'), to_date('2022-3-10','YYYY-MM-DD'));
+insert into record 
+values('55100107', '9787111599715', to_date('2022-1-22','YYYY-MM-DD'), '逾还', to_date('2022-2-22','YYYY-MM-DD'), to_date('2022-3-10','YYYY-MM-DD'));
+insert into record 
+values('55100110', '9787805534404', to_date('2022-11-22','YYYY-MM-DD'), '逾还', to_date('2022-12-22','YYYY-MM-DD'), to_date('2023-1-10','YYYY-MM-DD'));
+insert into record 
+values('55100211', '9787302526308', to_date('2023-1-12','YYYY-MM-DD'), '逾还', to_date('2023-2-12','YYYY-MM-DD'), to_date('2023-2-17','YYYY-MM-DD'));
+insert into record 
+values('55100112', '9787540250379', to_date('2023-3-24','YYYY-MM-DD'), '逾还', to_date('2023-4-24','YYYY-MM-DD'), to_date('2023-4-30','YYYY-MM-DD'));
+insert into record 
+values('55100114', '9787115484291', to_date('2022-11-12','YYYY-MM-DD'), '逾还', to_date('2022-12-12','YYYY-MM-DD'), to_date('2022-12-19','YYYY-MM-DD'));
+
+
+
+insert into record 
+values('55100105', '9787313177063', to_date('2023-1-22','YYYY-MM-DD'), '损坏', to_date('2023-2-22','YYYY-MM-DD'), to_date('2023-2-21','YYYY-MM-DD'));
+insert into record 
+values('55100107', '9787544334532', to_date('2023-2-12','YYYY-MM-DD'), '损坏', to_date('2023-3-12','YYYY-MM-DD'), to_date('2023-2-25','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100207', '9787559614032', to_date('2022-12-12','YYYY-MM-DD'), '丢失', to_date('2023-1-12','YYYY-MM-DD'));
+insert into record (readerId, bookId, borrowDate, state, expectDate)
+values('55100212', '9787544766630', to_date('2023-3-7','YYYY-MM-DD'), '丢失', to_date('2023-4-7','YYYY-MM-DD'));
 ```
 
 #### 8、handle_reader表

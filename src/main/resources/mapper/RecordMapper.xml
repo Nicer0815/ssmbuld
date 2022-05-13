@@ -19,6 +19,12 @@
                     where READERID = #{readerId} and BOOKID = #{bookId} and BORROWDATE = #{borrowDate}
     </update>
 
+    <update id="staffReturnBook" parameterType="Record">
+        update LYN.RECORD set STATE = '已还',
+                              RETURNDATE = #{returnDate}
+                        where READERID = #{readerId} and BORROWDATE = #{borrowDate} and BOOKID = #{bookId}
+    </update>
+
     <select id="queryRecordByReaderId" resultType="Record">
         select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId}
     </select>

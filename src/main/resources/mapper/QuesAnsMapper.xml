@@ -15,6 +15,10 @@
         select * from QUES_ANS where ANSWER is null
     </select>
 
+    <select id="querySolvedQues" resultType="QuesAns">
+        select * from QUES_ANS where ANSWER is not null
+    </select>
+
     <insert id="addQues" parameterType="QuesAns">
         insert into QUES_ANS (READERID, ASKDATE, QUESTION)
         values (#{readerId},#{askDate},#{question})
@@ -23,4 +27,9 @@
     <delete id="dropQues" parameterType="QuesAns">
         delete QUES_ANS where READERID = #{readerId} and ASKDATE = #{askDate}
     </delete>
+
+    <update id="quesAnsReply" parameterType="QuesAns">
+        update LYN.QUES_ANS set ANSWER = #{answer},JOBID = #{jobId}
+                        where READERID=#{readerId} and ASKDATE = #{askDate}
+    </update>
 </mapper>

@@ -10,6 +10,8 @@ public interface RecordMapper {
 
     int updateRecord(Record record);
 
+    int staffReturnBook(Record record);
+
     List<Record> queryRecordByReaderId(String readerId);
     //未还、续借、逾期
     List<Record> queryUnReturnByReaderId(String readerId);

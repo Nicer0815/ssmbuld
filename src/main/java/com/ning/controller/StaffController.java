@@ -9,6 +9,7 @@ import com.ning.entity.Staff;
 import com.ning.service.QuesAnsService;
 import com.ning.service.RecordService;
 import com.ning.service.StaffService;
+import com.ning.utils.DateUtils;
 import com.ning.utils.DynamicDataSourceHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -77,6 +79,20 @@ public class StaffController {
         model.addAttribute("unReturnRecords",unReturnRecords);
         return "admin/adminReturn";
     }
+    @RequestMapping("/return")
+    public String returnBook(String readerId,String borrowDate,String bookID){
+        Record record = new Record();
+
+        record.setBookId(bookID);
+        record.setReaderId(readerId);
+        record.setBorrowDate(DateUtils.cstStringToDate(borrowDate));
+        record.setReturnDate(new Date());
+
+        int cnt = recordService.staffReturnBook(record);
+        System.out.println(""+cnt+"行还书受到影响");
+        return "redirect:/staff/toReturn";
+    }
+
 
     //废弃，废除 待归还 这个状态
     @RequestMapping("/toHandle")
@@ -88,10 +104,33 @@ public class StaffController {
     }
     @RequestMapping("/toQuesAns")
     public String toQuesAns(Model model){
-        List<QuesAns> allQuesAns =  quesAnsService.queryAllQues();
-        List<QuesAns> UnsolvedQuesAns =  quesAnsService.queryAllQues();
-        model.addAttribute("allQuesAns",allQuesAns);
+        List<QuesAns> solvedQuesAns =  quesAnsService.querySolvedQues();
+        List<QuesAns> UnsolvedQuesAns =  quesAnsService.queryUnsolvedQues();
+        model.addAttribute("solvedQuesAns",solvedQuesAns);
         model.addAttribute("unSolvedQuesAns",UnsolvedQuesAns);
         return "admin/adminQuesAns";
     }
+    @RequestMapping("/deleteQuesAns")
+    public String deleteQuesAns(String readerId,String askDate){
+        QuesAns quesAns = new QuesAns();
+        quesAns.setAskDate(DateUtils.cstStringToDate(askDate));
+        quesAns.setReaderId(readerId);
+        quesAnsService.dropQues(quesAns);
+        return "redirect:/staff/toQuesAns";
+    }
+
+    @RequestMapping("/quesAnsReply")
+    public String quesAnsReply(String readerId,String askDate,String answer,HttpSession session){
+        System.out.println("info:"+readerId+askDate+answer);
+        QuesAns quesAns = new QuesAns();
+        quesAns.setReaderId(readerId);
+        quesAns.setAskDate(DateUtils.cstStringToDate(askDate));
+        quesAns.setAnswer(answer);
+        Staff staff = (Staff) session.getAttribute("staff");
+        quesAns.setJobId(staff.getJobId());
+        quesAnsService.quesAnsReply(quesAns);
+        return "redirect:/staff/toQuesAns";
+    }
+
+
 }
