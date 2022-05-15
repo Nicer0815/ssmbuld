@@ -73,7 +73,6 @@ public class RecordController {
         List<Record> records = (List<Record>) session.getAttribute("records");
         System.out.println(records);
         for(Record record : records){
-            //TODO 日期判等无效
             if(record.getBookId().equals(bookId) && DateUtils.equals(date,record.getBorrowDate())){
                 System.out.println(record);
                 record.setState("正在还书");

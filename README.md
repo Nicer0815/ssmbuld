@@ -26,11 +26,11 @@
 - [x] **主键外键**
 - [x] **==索引==**
 - [x] ==**视图**==
-- [ ] **序列**
+- [x] **序列**
 - [x] **触发器**
-- [ ] **过程和函数**
+- [x] **过程和函数**
 - [x] **大对象**
-- [x] 其他规范：无select * 、
+- [ ] 其他规范：无select * 
 
 # 1、需求分析
 
@@ -309,7 +309,7 @@ end;
 
 
 --触发器：1、语句级  
---        2、行级
+--       2、行级
 --插入一条记录，输出一个新员工入职
 create or replace trigger t1
 after
@@ -2050,6 +2050,20 @@ create index book_title on books(title);
 
 4、【序列】设计序列
 
+```sql
+create sequence ENTRY_CHECK_ID;
+
+select LYN.ENTRY_CHECK_ID.currval from dual;
+
+insert into LYN.entry_info (checkId,bookId, entryDate, amount, jobId, price)
+values (ENTRY_CHECK_ID.nextval,'11111',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',60.00);
+insert into LYN.entry_info (checkId,bookId, entryDate, amount, jobId, price)
+values (ENTRY_CHECK_ID.nextval,'9787111599715',to_date('2022-03-27','YYYY-MM-DD'),20,'3002',89.00);
+commit;
+
+select * from LYN.ENTRY_INFO;
+```
+
 
 
 5、【触发器】
@@ -2080,6 +2094,24 @@ begin
     if :new.state = '已还' then
        update LYN.Book_State set remainnum = remainnum + 1 where book_state.bookid = :new.bookid;
     end if;   
+end;
+```
+
+6、过程、函数
+
+```sql
+create or replace procedure P1_ADD_SCORE(rid LYN.CREDENTIALS.READERID%type)
+is
+begin
+  update LYN.CREDENTIALS set SCORE = SCORE + 2 where READERID = rid;
+  commit;
+end;
+
+create or replace procedure P2_SUB_SCORE(rid LYN.CREDENTIALS.READERID%type)
+is
+begin
+  update LYN.CREDENTIALS set SCORE = SCORE - 3 where READERID = rid;
+  commit;
 end;
 ```
 
@@ -2215,7 +2247,6 @@ grant select,insert,delete on book_collect to wry;
 grant select,insert on ques_ans to wry;
 grant select,insert on comments to wry;
 grant select on books_cover to wry;
-
 ```
 
 
@@ -2255,7 +2286,7 @@ begin
        update LYN.Book_State set remainnum = remainnum + 1 where book_state.bookid = :new.bookid;
     end if;   
 end;
-
+git log --author="Nice" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -
 
 select * from book_state;
 select * from record;
@@ -2273,4 +2304,86 @@ delete from record where bookid = '11111' and readerid = '55100102';
 ```
 
 
+
+### 序列测试（LYN）
+
+```sql
+select * from entry_info;
+
+drop table entry_info;
+create table entry_info(
+    checkId int,
+    bookId varchar2(50),
+    entryDate DATE,
+    amount int,
+    jobId varchar2(30),
+    price numeric(6,2),
+    primary key (checkId,bookId),
+    foreign key (bookId) references books(bookId),
+    foreign key (jobId) references staff(jobId)
+);
+create sequence ENTRY_CHECK_ID;
+create sequence ENTRY_ID;
+commit;
+select LYN.ENTRY_CHECK_ID.currval from dual;
+
+insert into LYN.entry_info (checkId,bookId, entryDate, amount, jobId, price)
+values (ENTRY_CHECK_ID.nextval,'11111',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',60.00);
+insert into LYN.entry_info (checkId,bookId, entryDate, amount, jobId, price)
+values (ENTRY_CHECK_ID.nextval,'9787111599715',to_date('2022-03-27','YYYY-MM-DD'),20,'3002',89.00);
+
+select * from LYN.ENTRY_INFO;
+
+
+create or replace procedure P1_ADD_SCORE(rid LYN.CREDENTIALS.READERID%type)
+is
+begin
+  update LYN.CREDENTIALS set SCORE = SCORE + 2 where READERID = rid;
+  commit;
+end;
+
+create or replace procedure P2_SUB_SCORE(rid LYN.CREDENTIALS.READERID%type)
+is
+begin
+  update LYN.CREDENTIALS set SCORE = SCORE - 3 where READERID = rid;
+  commit;
+end;
+
+```
+
+```sql
+DROP TRIGGER entry_tri;
+insert into entry_info 
+values (ENTRY_ID.nextval,'11111',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',60.00);
+                                --现代操作系统
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787111599715',to_date('2022-03-27','YYYY-MM-DD'), 20,'3002',89.00);
+                               --计网
+insert into entry_info
+values (ENTRY_ID.nextval,'9787111618331',to_date('2022-03-27','YYYY-MM-DD'), 30,'3003',79.00);
+                               --设计模式
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787506365437',to_date('2022-03-28','YYYY-MM-DD'), 20,'3004',31.00);
+                               --活着
+insert into entry_info
+values (ENTRY_ID.nextval,'9787532734030',to_date('2022-03-28','YYYY-MM-DD'), 20,'4001',37.00);
+                               --月亮和六便士
+insert into entry_info
+values (ENTRY_ID.nextval,'9787570510542',to_date('2022-03-27','YYYY-MM-DD'), 20,'4002',60.00);
+                               --热风
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787519300203',to_date('2022-03-29','YYYY-MM-DD'), 20, '4003',45.50);
+                               --中国通史
+insert into entry_info
+values (ENTRY_ID.nextval,'9787550280469',to_date('2022-03-29','YYYY-MM-DD'), 10, '4004',198.00);
+                               --史记  
+insert into entry_info
+values (ENTRY_ID.nextval,'9787301284964',to_date('2021-02-27','YYYY-MM-DD'), 20, '4002',88.00);
+                               --摄影美学
+insert into entry_info
+values (ENTRY_ID.nextval,'9787115498489',to_date('2021-01-29','YYYY-MM-DD'), 20,'4003',56.50);
+                               --光影艺术
+insert into entry_info
+values (ENTRY_ID.nextval,'9787547430798',to_date('2020-04-29','YYYY-MM-DD'), 10,'4004',48.00);
+```
 

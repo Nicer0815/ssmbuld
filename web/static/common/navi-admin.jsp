@@ -44,7 +44,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">工作列表 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="${pageContext.request.contextPath}/staff/toBorrow">借书审批</a></li>
+                        <li><a href="${pageContext.request.contextPath}/staff/toApprove">借书审批</a></li>
                         <li><a href="${pageContext.request.contextPath}/staff/toReturn">还书审批</a></li>
                         <li><a href="${pageContext.request.contextPath}/staff/toHandle">特殊处理</a></li>
                         <li role="separator" class="divider"></li>

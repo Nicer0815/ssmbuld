@@ -5,8 +5,8 @@
 <mapper namespace="com.ning.dao.RecordMapper">
 
     <insert id="addRecord" parameterType="Record">
-        insert into RECORD (READERID, BOOKID, BORROWDATE, STATE, EXPECTDATE, RETURNDATE)
-        VALUES (#{readerId},#{bookId},#{borrowDate},#{state},#{expectDate},#{returnDate})
+        insert into LYN.RECORD (READERID, BOOKID, BORROWDATE, STATE, EXPECTDATE)
+        VALUES (#{readerId},#{bookId},#{borrowDate},#{state},#{expectDate})
     </insert>
 
     <update id="updateRecord" parameterType="Record">

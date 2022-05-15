@@ -1,14 +1,8 @@
 package com.ning.controller;
 
 
-import com.ning.dao.RecordMapper;
-import com.ning.entity.QuesAns;
-import com.ning.entity.Readers;
-import com.ning.entity.Record;
-import com.ning.entity.Staff;
-import com.ning.service.QuesAnsService;
-import com.ning.service.RecordService;
-import com.ning.service.StaffService;
+import com.ning.entity.*;
+import com.ning.service.*;
 import com.ning.utils.DateUtils;
 import com.ning.utils.DynamicDataSourceHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +21,14 @@ public class StaffController {
     @Autowired
     @Qualifier("StaffServiceImpl")
     StaffService staffService;
+
+    @Autowired
+    @Qualifier("ReaderServiceImpl")
+    ReaderService readerService;
+
+    @Autowired
+    @Qualifier("BookServiceImpl")
+    BookService bookService;
 
     @Autowired
     @Qualifier("RecordServiceImpl")
@@ -66,7 +68,6 @@ public class StaffController {
             return "admin/adminLogin";
         }
     }
-    //TODO  toReturn toHandle toQuesAns logout
 
     @RequestMapping("/logout")
     public String logout(HttpSession session){
@@ -97,11 +98,26 @@ public class StaffController {
     //废弃，废除 待归还 这个状态
     @RequestMapping("/toHandle")
     public String toHandle(Model model, HttpSession session){
-        //处理
+        //处理对象： 未还、续借、逾期
         List<Record> unReturnRecords = recordService.queryUnReturn();
         model.addAttribute("unReturnRecords",unReturnRecords);
         return "admin/adminHandle";
     }
+    @RequestMapping("/handle")
+    public String handle(String readerId,String bookId,String state,String borrowDate,String expectDate){
+        Record record = new Record();
+        record.setBookId(bookId);
+        record.setBorrowDate(DateUtils.cstStringToDate(borrowDate));
+        record.setExpectDate(DateUtils.cstStringToDate(expectDate));
+        record.setReaderId(readerId);
+        record.setState(state);
+        System.out.println(record);
+        recordService.updateRecord(record);
+        //TODO: remainNum -1
+        //丢失、损坏、逾期
+        return "redirect:/staff/toHandle";
+    }
+
     @RequestMapping("/toQuesAns")
     public String toQuesAns(Model model){
         List<QuesAns> solvedQuesAns =  quesAnsService.querySolvedQues();
@@ -132,5 +148,31 @@ public class StaffController {
         return "redirect:/staff/toQuesAns";
     }
 
+    @RequestMapping("/toApprove")
+    public String toApprove(){
+        return "admin/adminApprove";
+    }
+
+    @RequestMapping("/approveBorrow")
+    public String approveBorrow(String bookId,String readerId,Model model){
+        //业务代码
+        Books books = bookService.queryBookById(bookId);
+        Readers readers = readerService.queryReaderByReaderId(readerId);
+        if (books == null || readers == null){
+            model.addAttribute("msg","ISBN号或读者账号有误！");
+        }else{
+            Record record = new Record();
+            Date now = new Date();
+            record.setBorrowDate(now);
+            record.setExpectDate(DateUtils.plus15Days(now));
+            record.setReaderId(readerId);
+            record.setBookId(bookId);
+            record.setState("待还");
+            System.out.println(record);
+            recordService.addRecord(record);
+            model.addAttribute("msg","借出成功！");
+        }
+        return "admin/approveResult";
+    }
 
 }
