@@ -9,10 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap-3.3.7-css-bootstrap.min.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.10.0.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/bootstrap@3.3.7-dist-js-bootstrap.js"></script>
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
+<%--    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>--%>
+<%--    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>--%>
     <style type="text/css">
         .my-style-2{
             margin-top: 0;
