@@ -47,9 +47,16 @@ public class BookController {
 
     //添加书籍的请求
     @RequestMapping("/addBook")
-    public String addBook(Books books){
+    public String addBook(Books books,String location){
         System.out.println("addBook=>"+books);
         bookService.addBook(books);
+        BookState bookState = new BookState();
+        bookState.setBookId(books.getBookId());
+        bookState.setLocation(location);
+        bookState.setTitle(books.getTitle());
+        bookState.setRemainNum(books.getAmount());
+        System.out.println("bookState=>"+bookState);
+        bookStateService.addBookState(bookState);
         return "redirect:/book/allBook";    //重定向到 @RequestMapping("/allBook")请求
     }
 
@@ -71,6 +78,7 @@ public class BookController {
     @RequestMapping("/deleteBook")
     public String deleteBook(int id){
         System.out.println("delete ID=>"+id);
+        bookStateService.deleteBookStateById(String.valueOf(id));
         bookService.deleteBookById(id);
         return "redirect:/book/allBook";
     }

@@ -5,7 +5,7 @@
 <mapper namespace="com.ning.dao.ReaderMapper">
 
     <select id="queryReaderByReaderId" resultMap="ReaderCredentials">
-        select * from
+        select NAME, SEX, PHONENUM, READERID, HANDLEDATE, INVALIDDATE, PASSWORD, SCORE, BORROWNUM, STATE from
         LYN.readers join LYN.credentials using (readerId)
         where readerId = #{readerId}
     </select>
@@ -27,7 +27,8 @@
         </resultMap>
 
     <select id="queryAllReader" resultMap="ReaderCredentials">
-        select * from readers join credentials using (readerId)
+        select NAME, SEX, PHONENUM, READERID, HANDLEDATE, INVALIDDATE, PASSWORD, SCORE, BORROWNUM, STATE
+        from LYN.readers join LYN.credentials using (readerId)
     </select>
 
 
@@ -39,14 +40,14 @@
     </insert>
 
     <update id="updateReader" parameterType="Readers">
-        update readers set name = #{name},
+        update LYN.readers set name = #{name},
                            sex = #{sex},
                            phoneNum = #{phoneNum}
                     where readerId = #{readerId}
     </update>
 
     <update id="updateCredentials" parameterType="Credentials">
-        update credentials set password = #{password},
+        update LYN.credentials set password = #{password},
                                score = #{score},
                                borrowNum = #{borrowNum},
                                state = #{state}

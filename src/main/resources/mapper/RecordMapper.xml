@@ -10,7 +10,7 @@
     </insert>
 
     <update id="updateRecord" parameterType="Record">
-        update RECORD set STATE = #{state},
+        update LYN.RECORD set STATE = #{state},
                         EXPECTDATE = #{expectDate}
                         /*续借操作returnDate == null 时需要动态SQL判空*/
                         <if test="returnDate!=null">
@@ -26,23 +26,33 @@
     </update>
 
     <select id="queryRecordByReaderId" resultType="Record">
-        select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId}
+        select RECORD.READERID, RECORD.BORROWDATE, RECORD.STATE, RECORD.EXPECTDATE, RECORD.RETURNDATE, BOOKS.BOOKID, BOOKS.TITLE, BOOKS.AUTHOR, BOOKS.PUBDATE, BOOKS.PRESS, BOOKS.AMOUNT, BOOKS.SUBJECT, BOOKS.PRICE, BOOKS.STATE
+        from LYN.RECORD join LYN.BOOKS on (RECORD.BOOKID=BOOKS.BOOKID) where READERID = #{readerId}
     </select>
 
     <select id="queryContinueByReaderId" resultType="Record">
-        select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId} and RECORD.STATE = '未还'
+        select RECORD.READERID, RECORD.BORROWDATE, RECORD.STATE, RECORD.EXPECTDATE, RECORD.RETURNDATE, BOOKS.BOOKID, BOOKS.TITLE, BOOKS.AUTHOR, BOOKS.PUBDATE, BOOKS.PRESS, BOOKS.AMOUNT, BOOKS.SUBJECT, BOOKS.PRICE, BOOKS.STATE
+        from LYN.RECORD join LYN.BOOKS on (RECORD.BOOKID=BOOKS.BOOKID) where READERID = #{readerId} and RECORD.STATE = '未还'
     </select>
 
     <select id="queryUnReturnByReaderId" resultType="Record">
-        select * from RECORD join BOOKS using (BOOKID) where READERID = #{readerId} and (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
+        select RECORD.READERID, RECORD.BORROWDATE, RECORD.STATE,
+               RECORD.EXPECTDATE, RECORD.RETURNDATE,
+               BOOKS.BOOKID, BOOKS.TITLE, BOOKS.AUTHOR,
+               BOOKS.PUBDATE, BOOKS.PRESS, BOOKS.AMOUNT,
+               BOOKS.SUBJECT, BOOKS.PRICE, BOOKS.STATE
+        from LYN.RECORD join LYN.BOOKS
+                             on (RECORD.BOOKID=BOOKS.BOOKID) where READERID = #{readerId}
+                             and (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
     </select>
 
     <select id="queryUnReturn" resultType="Record">
-        select * from RECORD join BOOKS using (BOOKID) where (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
+        select RECORD.READERID, RECORD.BORROWDATE, RECORD.STATE, RECORD.EXPECTDATE, RECORD.RETURNDATE, BOOKS.BOOKID, BOOKS.TITLE, BOOKS.AUTHOR, BOOKS.PUBDATE, BOOKS.PRESS, BOOKS.AMOUNT, BOOKS.SUBJECT, BOOKS.PRICE, BOOKS.STATE
+        from LYN.RECORD join LYN.BOOKS on (RECORD.BOOKID=BOOKS.BOOKID) where (RECORD.STATE = '未还' or RECORD.STATE = '续借' or RECORD.STATE = '逾期')
     </select>
 
     <select id="queryAllRecord" resultType="Record">
-        select * from RECORD
+        select READERID, BOOKID, BORROWDATE, STATE, EXPECTDATE, RETURNDATE from LYN.RECORD
     </select>
 
 </mapper>

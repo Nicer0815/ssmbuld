@@ -9,4 +9,7 @@ public interface BookStateMapper {
 
     BookState queryStateByBookId(String bookId);
 
+    int addBookState(BookState bookState);
+
+    int deleteBookStateById(String bookId);
 }

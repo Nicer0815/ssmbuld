@@ -4,28 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ning.dao.QuesAnsMapper">
     <select id="queryQuesByReaderId" resultType="QuesAns">
-        select * from QUES_ANS where READERID = #{readerId}
+        select READERID, ASKDATE, JOBID, QUESTION, ANSWER
+        from LYN.QUES_ANS where READERID = #{readerId}
     </select>
 
     <select id="queryAllQues" resultType="QuesAns">
-        select * from QUES_ANS
+        select READERID, ASKDATE, JOBID, QUESTION, ANSWER
+        from LYN.QUES_ANS
     </select>
 
     <select id="queryUnsolvedQues" resultType="QuesAns">
-        select * from QUES_ANS where ANSWER is null
+        select READERID, ASKDATE, JOBID, QUESTION, ANSWER
+        from LYN.QUES_ANS where ANSWER is null
     </select>
 
     <select id="querySolvedQues" resultType="QuesAns">
-        select * from QUES_ANS where ANSWER is not null
+        select READERID, ASKDATE, JOBID, QUESTION, ANSWER
+        from LYN.QUES_ANS where ANSWER is not null
     </select>
 
     <insert id="addQues" parameterType="QuesAns">
-        insert into QUES_ANS (READERID, ASKDATE, QUESTION)
+        insert into LYN.QUES_ANS (READERID, ASKDATE, QUESTION)
         values (#{readerId},#{askDate},#{question})
     </insert>
 
     <delete id="dropQues" parameterType="QuesAns">
-        delete QUES_ANS where READERID = #{readerId} and ASKDATE = #{askDate}
+        delete LYN.QUES_ANS where READERID = #{readerId} and ASKDATE = #{askDate}
     </delete>
 
     <update id="quesAnsReply" parameterType="QuesAns">

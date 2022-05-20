@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ning.dao.BookMapper">
     <insert id="addBook" parameterType="Books">
-        insert into books(bookId, title, author,
+        insert into LYN.books(bookId, title, author,
                                    pubDate, press, amount,
                                    subject, price, state)
         values(#{bookId},#{title},#{author},
@@ -13,7 +13,7 @@
     </insert>
 
     <delete id="deleteBookById" parameterType="_int">
-        delete from books where bookId = #{bookID}
+        delete from LYN.books where bookId = #{bookID}
     </delete>
 
     <!--
@@ -24,7 +24,7 @@
             -->
 
     <update id="updateBook" parameterType="Books">
-        update books
+        update LYN.books
         set title = #{title},author = #{author},pubDate= #{pubDate},
             press = #{press},amount= #{amount},subject= #{subject},
             price = #{price},state = #{state}
@@ -32,16 +32,16 @@
     </update>
 
     <select id="queryBookById" resultType="Books">
-        select * from books
+        select bookid, title, author, pubdate, press, amount, subject, price, state from LYN.books
         where bookId=#{bookID}
     </select>
 
     <select id="queryAllBook" resultType="Books">
-        select * from books
+        select bookid, title, author, pubdate, press, amount, subject, price, state from LYN.books
     </select>
 
     <select id="queryBookByName" resultType="Books">
-        select * from books where books.title like #{bookName}
+        select bookid, title, author, pubdate, press, amount, subject, price, state from LYN.books where books.title like #{bookName}
     </select>
 
 </mapper>

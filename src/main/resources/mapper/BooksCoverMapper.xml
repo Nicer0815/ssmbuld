@@ -5,15 +5,15 @@
 <mapper namespace="com.ning.dao.BooksCoverMapper">
 
     <insert id="addBooksCover" parameterType="BooksCover">
-        insert into BOOKS_COVER values (#{bookId},#{cover})
+        insert into LYN.BOOKS_COVER values (#{bookId},#{cover})
     </insert>
 
 
     <select id="queryCoverByBookId" resultType="BooksCover">
-        select * from BOOKS_COVER where BOOKID = #{bookId}
+        select BOOKID, COVER from LYN.BOOKS_COVER where BOOKID = #{bookId}
     </select>
 
     <update id="updateCover" parameterType="BooksCover">
-        update BOOKS_COVER set BOOKID = #{bookId},COVER = #{cover}
+        update LYN.BOOKS_COVER set BOOKID = #{bookId},COVER = #{cover}
     </update>
 </mapper>

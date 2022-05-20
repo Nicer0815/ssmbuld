@@ -10,10 +10,13 @@
 <head>
   <meta charset="utf-8">
   <title>管理员-登录页面</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap-3.3.7-css-bootstrap.min.css">
+  <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.10.0.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/bootstrap@3.3.7-dist-js-bootstrap.js"></script>
+<%--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">--%>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<%--  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>--%>
+<%--  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>--%>
   <script type="text/javascript">
     $(function(){
       $('#password').focus(function(){

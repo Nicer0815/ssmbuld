@@ -5,11 +5,11 @@
 <mapper namespace="com.ning.dao.StaffMapper">
 
     <select id="queryStaffByJobId" resultType="Staff">
-        select * from STAFF where JOBID = #{jobId}
+        select JOBID, PERSONID, NAME, PASSWORD, RANK, SEX, PHONENUM from LYN.STAFF where JOBID = #{jobId}
     </select>
    <!--对sex，rank，password不可修改-->
     <update id="updateStaff" parameterType="Staff">
-        update STAFF set PERSONID = #{personId},
+        update LYN.STAFF set PERSONID = #{personId},
                          NAME = #{name},
                          PHONENUM = #{phoneNum}
                     where JOBID = #{jobId}

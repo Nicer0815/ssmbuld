@@ -5,14 +5,14 @@
 <mapper namespace="com.ning.dao.CommentsMapper">
 
     <insert id="addComment" parameterType="Comments">
-        insert into COMMENTS values (#{bookId},#{readerId},#{commentDate},#{content})
+        insert into LYN.COMMENTS values (#{bookId},#{readerId},#{commentDate},#{content})
     </insert>
 
     <select id="queryCommentByBookId" resultType="Comments">
-        select * from COMMENTS where BOOKID = #{bookId}
+        select bookid, readerid, commentdate, content from LYN.COMMENTS where BOOKID = #{bookId}
     </select>
 
     <select id="queryAllComments" resultType="Comments">
-        select * from COMMENTS
+        select BOOKID, READERID, COMMENTDATE, CONTENT from LYN.COMMENTS
     </select>
 </mapper>

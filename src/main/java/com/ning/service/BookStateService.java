@@ -8,4 +8,8 @@ public interface BookStateService {
     List<BookState> queryAllState();
 
     BookState queryStateByBookId(String bookId);
+
+    int addBookState(BookState bookState);
+
+    int deleteBookStateById(String bookId);
 }

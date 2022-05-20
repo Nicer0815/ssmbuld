@@ -5,14 +5,14 @@
 <mapper namespace="com.ning.dao.CollectMapper">
 
    <insert id="addCollect" parameterType="BookCollect">
-       insert into BOOK_COLLECT values (#{readerId},#{bookId},#{collectDate})
+       insert into LYN.BOOK_COLLECT(READERID, BOOKID, COLLECTDATE) values (#{readerId},#{bookId},#{collectDate})
    </insert>
 
     <delete id="deleteCollect" parameterType="BookCollect">
-        delete BOOK_COLLECT where READERID=#{readerId} and BOOKID = #{bookId}
+        delete LYN.BOOK_COLLECT where READERID=#{readerId} and BOOKID = #{bookId}
     </delete>
 
     <select id="queryCollectByReaderId" resultType="BookCollect">
-        select * from BOOK_COLLECT join BOOKS using (BOOKID)where READERID = #{readerId}
+        select * from LYN.BOOK_COLLECT join LYN.BOOKS using (BOOKID)where READERID = #{readerId}
     </select>
 </mapper>

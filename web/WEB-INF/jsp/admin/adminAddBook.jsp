@@ -47,6 +47,10 @@
                         <input type="text" name="amount" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label>馆藏位置：</label>
+                        <input type="text" name="location" class="form-control" required>
+                    </div>
+                    <div class="form-group">
                         <label>类别：</label>
                         <input type="text" name="subject" class="form-control" required>
                     </div>

@@ -23,4 +23,14 @@ public class BookStateServiceImpl implements BookStateService {
     public BookState queryStateByBookId(String bookId) {
         return bookStateMapper.queryStateByBookId(bookId);
     }
+
+    @Override
+    public int addBookState(BookState bookState) {
+        return bookStateMapper.addBookState(bookState);
+    }
+
+    @Override
+    public int deleteBookStateById(String bookId) {
+        return bookStateMapper.deleteBookStateById(bookId);
+    }
 }

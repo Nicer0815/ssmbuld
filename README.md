@@ -2385,5 +2385,34 @@ values (ENTRY_ID.nextval,'9787115498489',to_date('2021-01-29','YYYY-MM-DD'), 20,
                                --光影艺术
 insert into entry_info
 values (ENTRY_ID.nextval,'9787547430798',to_date('2020-04-29','YYYY-MM-DD'), 10,'4004',48.00);
+
+<!-- 支持引导4.x您还可以使用引导css 3.3.x版本 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<!-- 如果使用RTL（从右到左）方向，请在fileinput.CSS之后通过在下面取消注释来加载RTL CSS文件 -->
+<!-- link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- piexif.min.js 需要自动定位图像文件，或者在重新调整大小的图像时恢复EXIF数据，而当您
+希望在上载前调整图像大小。必须在fileinput.min.js之前加载 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/piexif.min.js" type="text/javascript"></script>
+<!-- 仅当希望在初始预览中排序/重新排列文件时，才需要sortable.min.js。
+必须在fileinput.min.js之前加载 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/sortable.min.js" type="text/javascript"></script>
+<!-- 仅当您希望在预览版中净化HTML内容时才需要purify.min.js
+HTML文件。必须在fileinput.min.js之前加载 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/plugins/purify.min.js" type="text/javascript"></script>
+<!-- 如果使用bootstrap 4.x，则需要下面的popper.min.js。
+不带popper.min.js的3.3.x版本。 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<!-- 如果希望以详细模式缩放和预览文件内容，需要使用下面的bootstrap.min.js
+对话。支持引导4.x您还可以使用bootstrapJS3.3.x版本。 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+<!--主文件 fileinput plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/fileinput.min.js"></script>
+<!-- 主文件输入插件文件如果你需要一个像字体这样的主题，你可以包括它，如下所述 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/themes/fa/theme.js"></script>
+<!-- 如果您的语言需要翻译，也可以选择包含如下所述的语言环境文件 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.9/js/locales/(lang).js"></script>
+
 ```
 
