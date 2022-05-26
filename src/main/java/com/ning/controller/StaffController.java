@@ -39,13 +39,15 @@ public class StaffController {
     QuesAnsService quesAnsService;
 
     @RequestMapping("/toLogin")
-    public String toLogin(){
+    public String toLogin(HttpSession session){
+        session.removeAttribute("msg");
         return "admin/adminLogin";
     }
 
 
     @RequestMapping("/login")
     public String login(String jobId, String password, HttpSession session){
+        DynamicDataSourceHolder.clearDataSourceType();
         DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_DEVELOPER);
         System.out.println("jobId:"+ jobId+" password:"+password+"  ==>login");
         Staff staff = staffService.queryStaffByJobId(jobId);

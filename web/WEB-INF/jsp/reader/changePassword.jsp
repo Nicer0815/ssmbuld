@@ -41,7 +41,7 @@
 <jsp:include page="/static/common/navi.jsp"></jsp:include>
 <body style="height: 100vh;
     background: linear-gradient(200deg,#72afd3,#96fbc4);">
-密码:${reader.credential.password}
+<%--密码:${reader.credential.password}--%>
 <div class="container center-block" style="align-items: center;margin-top: 200px;margin-left: 800px">
     <div class="login-box">
         <div class="owl" id="owl">

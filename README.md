@@ -30,7 +30,7 @@
 - [x] **触发器**
 - [x] **过程和函数**
 - [x] **大对象**
-- [ ] 其他规范：无select * 
+- [x] 其他规范：无select *、 无insert 直接加 values、表名前跟用户
 
 # 1、需求分析
 
@@ -985,40 +985,129 @@ values('54321','11100022254321','李大力','123456','馆长','M','18954321');
 #### 6、entry_info表
 
 ```sql
-insert into entry_info values ('20220327-0001','11111',
-                               to_date('2022-03-27','YYYY-MM-DD'),
-                                20,'3001',60.00);
-                                --现代操作系统
-insert into entry_info values ('20220327-0002','9787111599715',
-                               to_date('2022-03-27','YYYY-MM-DD'), 
-                               20,'3002',89.00);
-                               --计网
-insert into entry_info values ('20220327-0003','9787111618331',
-                               to_date('2022-03-27','YYYY-MM-DD'),  
-                               30,'3003',79.00);
-                               --设计模式
-insert into entry_info values ('20220328-0004','9787506365437',
-                               to_date('2022-03-28','YYYY-MM-DD'),
-                               20,'3004',31.00);
-                               --活着
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787545559804',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',79.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787030201041',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',158.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787519249496',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',38.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787122356840',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',60.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787107278303',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',78.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787562832614',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',64.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787513542272',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',65.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787010009223',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',81.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787550218222',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',49.90);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787514709858',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',25.00);
+insert into entry_info
+values (ENTRY_ID.nextval,'9787010221779',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',49.80);
+insert into entry_info
+values (ENTRY_ID.nextval,'9787100074483',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',66.00);
+insert into entry_info
+values (ENTRY_ID.nextval,'9789301312889',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',28.00);
+insert into entry_info
+values (ENTRY_ID.nextval,'9787508091044',to_date('2022-03-28','YYYY-MM-DD'),20,'3002',29.00);
+
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787550282131',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',68.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787506046114',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',64.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787806928622',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',40.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787806672693',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',42.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787115519955',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',65.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787111213826',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',108.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787111528395',to_date('2022-03-29','YYYY-MM-DD'),20,'3003',69.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787111636663',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',298.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787302517597',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',69.80);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787513331418',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',27.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787544766500',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',48.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787506365604',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',33.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787224127898',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',26.80);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787508660752',to_date('2022-03-30','YYYY-MM-DD'),20,'3004',68.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787108009821',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',26.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787516827628',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',49.80);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787108010360',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',35.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787117255561',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',29.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787513248006',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',59.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787521401554',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',10.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787802312364',to_date('2022-03-31','YYYY-MM-DD'),20,'4001',45.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787560017273',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',12.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787560013466',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',29.90);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787560013473',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',79.80);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787560018737',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',19.90);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787503561634',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',76.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787509837412',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',150.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787509909294',to_date('2022-04-01','YYYY-MM-DD'),20,'4002',39.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787503565397',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',76.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'2402220000046',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',68.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787544766630',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',58.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787519742683',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',138.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787301264874',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',35.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787559614032',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',45.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787559402035',to_date('2022-04-02','YYYY-MM-DD'),20,'4003',118.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787544334532',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',35.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787518026517',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',68.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787313177063',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',49.80);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787805536170',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',86.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787805534404',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',32.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787302526308',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',98.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787121365409',to_date('2022-04-03','YYYY-MM-DD'),20,'4004',98.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787512202153',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',48.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787540250379',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',158.00);
+insert into entry_info 
+values (ENTRY_ID.nextval,'9787115484291',to_date('2022-03-27','YYYY-MM-DD'),20,'3001',128.00);
 
 
-insert into entry_info values ('20220328-0005','9787532734030',
-                               to_date('2022-03-28','YYYY-MM-DD'),
-                               20,'4001',37.00);
-                               --月亮和六便士
-insert into entry_info values ('20220327-0006','9787570510542',
-                               to_date('2022-03-27','YYYY-MM-DD'),
-                               20,'4002',60.00);
-                               --热风
-insert into entry_info values ('20220329-0007','9787519300203',
-                               to_date('2022-03-29','YYYY-MM-DD'),
-                               20,'4003',45.50);
-                               --中国通史
-insert into entry_info values ('20220329-0008','9787550280469',
-                               to_date('2022-03-29','YYYY-MM-DD'),
-                               10,'4004',198.00);
-                               --史记                               
+commit;
+select * from entry_info;            
 ```
 
 #### 7、record表
@@ -2008,13 +2097,25 @@ FROM
 
 
 
-## 2.6、多数据源设计
+## 2.6、多数据源（用户）设计
 
 ```sql
 --背景
 grant dba to lyn;
 grant connect to wry;
 grant resource to lly;
+
+--新增用户（5月26日）
+create user wry2
+identified by wry2
+default tablespace jlussm;
+grant connect to wry2;
+
+create user wry3
+identified by wry3
+default tablespace jlussm;
+grant connect to wry3;
+
 ```
 
 #### 2.6.1、数据库重构需求【5月】：
@@ -2130,28 +2231,31 @@ end;
 2、修改
 3、删除
 4、增加
+（下面权限表格中1代表查询，2代表修改，以此类推）
 ```
 
 ##### readers
 
-| READERS表    | READERID | NAME | SEX  | PHONENUM |
-| ------------ | -------- | ---- | ---- | -------- |
-| 用户权限：1  | 1        | 1    | 1    | 12       |
-| 管理员权限： |          |      |      |          |
+| READERS表       | READERID | NAME | SEX  | PHONENUM |
+| --------------- | -------- | ---- | ---- | -------- |
+| 用户权限：1     | 1        | 1    | 1    | 12       |
+| 管理员权限：1   | 1        | 1    | 1    | 1        |
+| 客户端权限：124 | 1        | 12   | 12   | 1        |
 
 ##### credentials
 
-| CREDENTIALS表 | READERID | HANDLEDATE | PASSWORD | SCORE | BORROWNUM | STATE |
-| ------------- | -------- | ---------- | -------- | ----- | --------- | ----- |
-| 用户权限：1   | 1        | 1          | 12       | 1     | 1         | 1     |
-| 管理员权限：  |          |            |          |       |           |       |
+| CREDENTIALS表   | READERID | HANDLEDATE | PASSWORD | SCORE | BORROWNUM |
+| --------------- | -------- | ---------- | -------- | ----- | --------- |
+| 用户权限：1     | 1        | 1          | 12       | 1     | 1         |
+| 管理员权限：12  | 1        | 1          | 1        | 12    | 12        |
+| 客户端权限：124 | 1        | 14         | 124      | 14    | 124       |
 
-##### readerInfo视图
+##### reader_Info视图
 
 | READERINFO视图 | READERID | NAME | SEX  | PHONENUM | SCORE | BORROWNUM | STATE |
 | -------------- | -------- | ---- | ---- | -------- | ----- | --------- | ----- |
 | 用户权限：     | 1        | 1    | 1    | 12       | 1     | 1         | 1     |
-| 管理员权限：   |          |      |      |          |       |           |       |
+| 管理员权限：   | 1        | 1    | 1    | 1        | 12    | 12        | 12    |
 
 ##### books
 
@@ -2169,31 +2273,32 @@ end;
 
 ##### staff
 
-| STAFF表        | JOBID | PERSONID | NAME | PASSWORD | RANK | SEX  | PHONENUM |
-| -------------- | ----- | -------- | ---- | -------- | ---- | ---- | -------- |
-| 用户权限：null |       |          |      |          |      |      |          |
-| 管理员权限：   |       |          |      |          |      |      |          |
+| STAFF表         | JOBID | PERSONID | NAME | PASSWORD | RANK |
+| --------------- | ----- | -------- | ---- | -------- | ---- |
+| 用户权限：null  |       |          |      |          |      |
+| 管理员权限：1   | 1     | 1        | 1    | 1        | 1    |
+| 客户端权限：124 |       |          |      |          |      |
 
 ##### entry_info
 
-| ENTRY_INFO表   | CHECKID | BOOKID | ENTRYDATE | AMOUNT | JOBID | PRICE |
-| -------------- | ------- | ------ | --------- | ------ | ----- | ----- |
-| 用户权限：null |         |        |           |        |       |       |
-| 管理员权限：   |         |        |           |        |       |       |
+| ENTRY_INFO表     | CHECKID | BOOKID | ENTRYDATE | AMOUNT | JOBID | PRICE |
+| ---------------- | ------- | ------ | --------- | ------ | ----- | ----- |
+| 用户权限：null   |         |        |           |        |       |       |
+| 管理员权限：1234 |         |        |           |        |       |       |
 
 ##### record
 
-| RECORD表     | READERID | BOOKID | BORROWDATE | STATE | EXPECTDATE | RETURNDATE |
-| ------------ | -------- | ------ | ---------- | ----- | ---------- | ---------- |
-| 用户权限：   | 1        | 1      | 1          | 12    | 12         | 1          |
-| 管理员权限： |          |        |            |       |            |            |
+| RECORD表        | READERID | BOOKID | BORROWDATE | STATE | EXPECTDATE | RETURNDATE |
+| --------------- | -------- | ------ | ---------- | ----- | ---------- | ---------- |
+| 用户权限：12    | 1        | 1      | 1          | 12    | 12         | 1          |
+| 管理员权限：124 |          |        |            |       |            |            |
 
 ##### handle_reader
 
-| HADNLE_READER表 | READERID | REPORTDATE | JOBID | DISPOSEDATE | STATE |
-| --------------- | -------- | ---------- | ----- | ----------- | ----- |
-| 用户权限：null  |          |            |       |             |       |
-| 管理员权限：    |          |            |       |             |       |
+| HADNLE_READER表  | READERID | REPORTDATE | JOBID | DISPOSEDATE | STATE |
+| ---------------- | -------- | ---------- | ----- | ----------- | ----- |
+| 用户权限：null   |          |            |       |             |       |
+| 管理员权限：1234 |          |            |       |             |       |
 
 ##### book_collect
 
@@ -2204,10 +2309,10 @@ end;
 
 ##### ques_ans
 
-| QUES_ANS表      | READERID | ASKDATE | JOBID | QUESTION | ANSWER |
-| --------------- | -------- | ------- | ----- | -------- | ------ |
-| 用户权限：14    | 1        | 1       | 1     | 1        | 1      |
-| 管理员权限：134 |          |         |       |          |        |
+| QUES_ANS表       | READERID | ASKDATE | JOBID | QUESTION | ANSWER |
+| ---------------- | -------- | ------- | ----- | -------- | ------ |
+| 用户权限：14     | 1        | 1       | 1     | 1        | 1      |
+| 管理员权限：1234 |          |         |       |          |        |
 
 ##### comments
 
@@ -2234,9 +2339,9 @@ end;
 
 ```sql
 --LYN用户下对wry用户授权，权限严格遵循2.6.2用户权限需求的设计
---注：wry用户为connect角色用户
---lyn用户为DBA角色用户
---lly用户为resource角色用户
+--注：wry系列用户为connect角色用户
+
+--读者模块的Oracle用户wry
 grant select,update(PHONENUM) on readers to wry;
 grant select,update(PASSWORD) on credentials to wry;
 grant select,update(PHONENUM) on reader_info to wry;
@@ -2247,6 +2352,29 @@ grant select,insert,delete on book_collect to wry;
 grant select,insert on ques_ans to wry;
 grant select,insert on comments to wry;
 grant select on books_cover to wry;
+
+--管理员模块的Oracle用户wry2
+grant select on readers to wry2;
+grant select,update on credentials to wry2;
+grant select,update(score,borrowNum,state) on reader_Info to wry2;
+grant select,update,delete,insert on books to wry2;
+grant select,update,delete,insert on book_state to wry2;
+grant select,update,delete,insert on books_cover to wry2;
+grant select,update,delete,insert on entry_info to wry2;
+grant select,update,insert on record to wry2;
+grant select,update,delete,insert on handle_reader to wry2;
+grant select,update,delete,insert on ques_ans to wry2;
+grant select,update,insert on comments to wry2;
+grant select,update,insert on report_book to wry2;
+
+
+
+--客户端（c/s）Oracle用户wry3
+grant select, update,insert on readers to wry3;
+grant select,update,insert on credentials to wry3;
+grant select,update,insert on staff to wry3;
+
+
 ```
 
 
@@ -2257,7 +2385,7 @@ grant select on books_cover to wry;
 
 
 
-# 4、测试
+# 4、测试（部分）
 
 ### 触发器测试(LYN用户下测试通过)
 

@@ -40,9 +40,7 @@
     </insert>
 
     <update id="updateReader" parameterType="Readers">
-        update LYN.readers set name = #{name},
-                           sex = #{sex},
-                           phoneNum = #{phoneNum}
+        update LYN.readers set phoneNum = #{phoneNum}
                     where readerId = #{readerId}
     </update>
 

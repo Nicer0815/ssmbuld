@@ -113,7 +113,7 @@
         </c:forEach>
     </div>
 </div>
-${quesAnsList}
+<%--${quesAnsList}--%>
 
 </body>
 </html>

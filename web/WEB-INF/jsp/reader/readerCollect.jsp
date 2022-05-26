@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="/static/common/navi.jsp"></jsp:include>
-${bookCollectList}
+<%--${bookCollectList}--%>
 
 
 <div class="row clearfix">

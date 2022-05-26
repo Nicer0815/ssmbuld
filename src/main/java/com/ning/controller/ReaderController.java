@@ -30,8 +30,11 @@ public class ReaderController {
 
     @RequestMapping("/allBook")
     public String toReaderAllBook(Model model){
+        //DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         List<Books> bookList = bookService.queryAllBook();
         model.addAttribute("bookList",bookList);
+        System.out.println(DynamicDataSourceHolder.getDataSourceType());
+        //DynamicDataSourceHolder.clearDataSourceType();
         return "reader/readerAllBook";
     }
 
@@ -39,13 +42,14 @@ public class ReaderController {
     public String login(String readerId, String password,HttpSession session){
         //
         System.out.println("datasource!!!!-------------------------------");
+        DynamicDataSourceHolder.clearDataSourceType();
         DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         System.out.println(DynamicDataSourceHolder.getDataSourceType());
         //
         System.out.println("readerId:"+ readerId+" password:"+password+"  ==>login");
         Readers reader = readerService.queryReaderByReaderId(readerId);
         //
-        DynamicDataSourceHolder.clearDataSourceType();
+        //DynamicDataSourceHolder.clearDataSourceType();
         System.out.println(DynamicDataSourceHolder.getDataSourceType());
         //
         if(reader != null){
@@ -79,16 +83,23 @@ public class ReaderController {
 
     @RequestMapping("/toChangePassword")
     public String toChangePassword(HttpSession session){
+//        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
+        session.removeAttribute("msg");
         if(session.getAttribute("reader") == null){
+            DynamicDataSourceHolder.clearDataSourceType();
             return "redirect:/reader/toLogin";
         }
+//        DynamicDataSourceHolder.clearDataSourceType();
+        System.out.println(DynamicDataSourceHolder.getDataSourceType());
         return "reader/changePassword";
     }
     @RequestMapping("/changePassword")
     public String changePassword(String originalPassword,String newPassword,String newPasswordConfirm,HttpSession session){
+//        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         session.removeAttribute("msg");
         if(!newPassword.equals(newPasswordConfirm)){
             session.setAttribute("msg","新密码与确认密码不一致！");
+//            DynamicDataSourceHolder.clearDataSourceType();
             return "redirect:/reader/toChangePassword";
         }
         Readers reader = (Readers) session.getAttribute("reader");
@@ -98,16 +109,21 @@ public class ReaderController {
             readerService.updateCredentials(reader.getCredential());
             session.setAttribute("reader",reader);  //覆盖
             System.out.println("密码修改--====---->后："+reader.getCredential().getPassword());
+//            DynamicDataSourceHolder.clearDataSourceType();
             return "reader/readerMain";
         }else{
             session.setAttribute("msg","原始密码错误");
             System.out.println("密码修改失败------密码错误！");
+//            DynamicDataSourceHolder.clearDataSourceType();
             return "redirect:/reader/toChangePassword";
         }
     }
     @RequestMapping("/logout")
     public String logout(HttpSession session){
+//        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         session.removeAttribute("reader");
+//        DynamicDataSourceHolder.clearDataSourceType();
+        session.removeAttribute("msg");
         return "reader/readerMain";
     }
     @RequestMapping("/aboutUs")
@@ -119,19 +135,29 @@ public class ReaderController {
 
     @RequestMapping("/queryBook")
     public String queryBookName(String bookName,Model model){
+//        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         System.out.println("queryBookName=>"+bookName);
-        //模糊查询
-        List<Books> list = bookService.queryBookByName("%"+bookName+"%");
+        List<Books>list = bookService.queryBookByName(bookName);
+        if(!list.isEmpty()){
+            model.addAttribute("bookList",list);
+//            DynamicDataSourceHolder.clearDataSourceType();
+            return "reader/readerAllBook";
+        }
+        //精确查询未查到，使用模糊查询
+        list = bookService.queryBookByName("%"+bookName+"%");
         model.addAttribute("bookList",list);
+//        DynamicDataSourceHolder.clearDataSourceType();
         return "reader/readerAllBook";
     }
 
     @RequestMapping("/changePhoneNum")
     public String changePhoneNum(int phoneNum,HttpSession session){
+//        DynamicDataSourceHolder.setDataSourceType(DynamicDataSourceHolder.DATE_SOURCE_USER);
         Readers reader = (Readers) session.getAttribute("reader");
         ((Readers) session.getAttribute("reader")).setPhoneNum(phoneNum);
         reader.setPhoneNum(phoneNum);
         readerService.updateReader(reader);
+//        DynamicDataSourceHolder.clearDataSourceType();
         return "reader/readerInfo";
     }
 

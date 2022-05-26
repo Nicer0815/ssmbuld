@@ -6,7 +6,7 @@ public class DynamicDataSourceHolder {
      * */
     public final static String DATE_SOURCE_DEVELOPER = "dataSource";
     public final static String DATE_SOURCE_USER = "dataSource1";
-
+    public final static String DATE_SOURCE_ADMIN = "dataSource2";
 
     // 用ThreadLocal来设置当前线程使用哪个dataSource
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();

@@ -26,7 +26,7 @@ public class CommentsController {
         comment.setBookId(bookId);
         comment.setContent(content);
         commentsService.addComment(comment);
-        return "reader/readerMain";
+        return "redirect:/reader/allBook";
     }
 
 

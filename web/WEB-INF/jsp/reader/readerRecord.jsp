@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="/static/common/navi.jsp"></jsp:include>
-records:${records}
+<%--records:${records}--%>
 <div class="row clearfix">
     <div class="col-md-1 column"></div>
     <div class="col-md-10 column">
